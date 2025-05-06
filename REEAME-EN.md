@@ -368,6 +368,7 @@ l  [User] The authentication file contains an unsupported version!
 l  Please check the Flash Tool is the latest version.
 
 1.52    S_DL_PROJECT_ID_DIFF_BETWEEN_MAIN_CODE_AND_JUMP_TBL
+The project IDs between MAUI code and jump table binary file are different! Please check the MAUI and jump table are in the same project.
 
 1.53    S_DL_SCAT_OPEN_FAIL
 [Description]
@@ -379,6 +380,8 @@ l  [User] The scatter file cannot be opened!
 l  Please check if your scatter file exists and is not used by other software.
 
 1.54    S_DL_UNSECURE_MAUI_TO_SECURE_BB
+Un-secure MAUI cannot be downloaded into Secure BB! Please use security-enabled MAUI.
+
 1.55    S_SECURITY_SLA_INVALID_AUTH_FILE
  [Description]
  
