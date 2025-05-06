@@ -651,7 +651,7 @@
 ### 1.52 S_DL_PROJECT_ID_DIFF_BETWEEN_MAIN_CODE_AND_JUMP_TBL 
 
 
-> *仅标题，原文未给出描述与解决方案。*
+- MAUI 代码和跳转表二进制文件之间的项目 ID 不同！请检查 MAUI 和跳转表是否在同一个项目中。
 
 
 
@@ -678,7 +678,7 @@
 ### 1.54 S_DL_UNSECURE_MAUI_TO_SECURE_BB 
 
 
-> *仅标题，原文未给出描述与解决方案。*
+- 无法将不安全的 MAUI 下载到安全的 BB 中！请使用启用安全功能的 MAUI。
 
 
 
