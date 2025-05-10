@@ -1,791 +1,1338 @@
-1.       BROM Error
-1.1       S_UNKNOWN_TARGET_BBCHIP
-[Description]
- 
-l  Unsupported target baseband chip type!
-[Solution]
- 
-l  Please upgrade to the latest Flash Tool then try again.
-
-1.2       S_UNSUPPORTED_VER_OF_BOOT_ROM
-[Description]
- 
-l  Unsupported Boot ROM!
-[Solution]
- 
-l  Please upgrade to the latest Flash Tool then try again.
-
-1.3       S_SEC_INFO_NOT_FOUND
-[Description]
- 
-l  Your ROM files doesn't enable secure feature! Secure-on BB must boot up with secure-on ROM files!
-[Solution]
- 
-l  Please use a secure-on ROM file then try again.
-
-1.4       S_UART_CHKSUM_ERROR
-[Description]
- 
-l  [H/W] Read-back SEC_RO or CUST_PARA and its checksum is mismatched with the checksum BROM DLL calculates after receiving through UART!
-[Solution]
- 
-l  Please check your UART cable is stable or not.
-
-1.5       S_BROM_DOWNLOAD_DA_FAIL
-[Description]
- 
-l   [H/W] Fail to download DA to baseband chip's internal SRAM!
- 
-[Reason]
- 
-1.         There’s a cable communication problem between Flash Tool and Boot ROM.
- 
-2.         Target might be shutdown unexpectedly or target lost power supply.
- 
-3.         The DA is not correct.
- 
-[Solution]
- 
-1.         Try again.
- 
-2.         Proceed H/W checking in download cable and target side com port.
- 
-3.         Monitor if power-drop occurred in target side.
-
-1.6       S_BROM_BBCHIP_HW_VER_INCORRECT
-[Description]
-l  [H/W] Target baseband chip is inconsistent with bin files!
- 
-[Solution]
-l  Please select the correct image files for the target's baseband chip
-
-1.7       S_BROM_FAIL_TO_GET_BBCHIP_HW_VER
-[Description]
- 
-l  [H/W] Fail to get target baseband chip H/W version!
- 
-[Reason]
- 
-1.         There's a cable communication problem between Flash Tool and Boot ROM.
-2.         Target might be shutdown unexpectedly.
- 
- 
-[Solution]
- 
-1.         Try again.
-2.         Proceed H/W checking in download cable and target side UART path.
-3.         Monitor if power-drop occurred in target side.
-
-1.8       S_BROM_AUTOBAUD_FAIL
-[Description]
-l  [H/W] Boot ROM start command passed but fails to multiple Boot ROM baud rate!
- 
-[Reason]
-1.         There's a cable communication problem between Flash Tool and Boot ROM.
-2.         Target might be shutdown unexpectedly.
- 
-[Solution]
-1.         Try again.
-2.         Speed-Up Boot ROM baud rate” in advance mode (CTRL+ALT+V) then try again.
-3.         Proceed H/W checking in download cable and target side UART path.
-4.         Monitor if power-drop occurred in target side.
-
-1.9       S_BROM_SPEEDUP_BAUDRATE_FAIL
-[Description]
- 
-l  [H/W] Boot ROM start command passed but fails to multiple Boot ROM baud rate!
- 
-[Reason]
-1.         There's a cable communication problem between Flash Tool and Boot ROM.
-2.         Target might be shutdown unexpectedly.
- 
-[Solution]
-1.         Try again.
-2.         Speed-Up Boot ROM baud rate” in advance mode (CTRL+ALT+V) then try again.
-3.         Proceed H/W checking in download cable and target side UART path.
-4.         Monitor if power-drop occurred in target side.
-
-1.10    S_BROM_EXCEED_MAX_DATA_BLOCKS
-[Description]
-l  [MAUI] The number of Multi-Bin files is more than 10!
-
- 
- [Solution]
- 
-1.         Please don't build more than 10 binary files.
-
-1.11    S_DA_INT_RAM_ERROR
- [Description]
- 
-l  The download image is not match with phone memory.
- [Solution]
- 
-l  Please select correct image to match with phone memory and try again.
-
-1.12    S_DA_EXT_RAM_ERROR
- [Description]
- 
-l  [H/W] DA didn't detect external RAM!
- 
- [Solution]
-l  It maybe a SMT or an EMI issue, please use another phone to download.
-
-1.13    S_DA_RAM_FLOARTING
- [Description]
-l  [H/W] DA detects that DRAM is floating!
- 
- [Solution]
-l  Please format all flash or use another phone to download.
-
-1.14    S_DA_DEVICE_NOT_FOUND
- [Description]
- 
-         [H/W] DA didn't detect external SRAM or DRAM on the phone.
- 
-[Reason]
- 
-1.         It maybe a SMT or an EMI issue.
- 
-2.         NOR or NAND hasn't been validated.
- 
-[Solution]
- 
-l  Please use another phone to download.
-
-1.16    S_DA_NAND_UNSUPPORTED_DEV_ID
- [Description]
-l  Unsupported NAND Flash type!
- 
-[Solution]
-l  Please upgrade to the latest Flash Tool then try again.
-
-1.18    S_DA_NAND_FLASH_NOT_FOUND
- [Description]
- 
-l  [H/W] DA didn't detect NAND Flash on the phone.
- 
-[Reason]
-1.         It maybe a SMT issue.
-2.         It maybe a NFI issue.
-3.         NOR or NAND hasn't been validated.
- 
-[Solution]
- 
-l  Please check whether download image is match with phone, and use another image to try again.
-
-1.21    S_DA_NAND_PAGE_PROGRAM_FAILED
- [Description]
-l  [H/W] DA fails to page-program NAND Flash!
- 
-[Reason]
-l  It maybe a SMT issue.
- 
-[Solution]
-l  The phone memory maybe damaged, please use another phone to download.
-
-1.22    S_DA_NAND_SPARE_PROGRAM_FAILED
- [Description]
-l  [H/W] DA fails to spare-program NAND Flash!
- 
-[Reason]
-l  It maybe a SMT issue.
- 
-[Solution]
-l  The phone memory maybe damaged, please use another phone to download.
-
-1.23    S_DA_NAND_BLOCK_DATA_UNSTABLE
- [Description]
- 
-l  [H/W] Data of the block is unstable after erasing NAND Flash!
- 
-[Reason]
-l  It maybe a SMT issue.
- 
-[Solution]
- 
-l  Please format all flash or use another phone to download.
-
-1.28    S_DA_INVALID_RANGE
- [Description]
- 
-l  One of download image has invalid address or length.
- 
-[Reason]
- 
-1.         One of the download blocks has invalid range.
- 
-2.         Possibly invalid begin address or end address exceeds target flash size.
- 
-3.         Possibly logical begin address or length exceeds check boundary.
- 
-[Solution]
- 
-l  Please select another scatter file to make sure the download block address is valid and try again.
-
-1.31    S_DA_BLANK_FLASH
- [Description]
- 
-l  [User] There doesn't exist MAUI code and SEC_RO (option) on the flash.
- 
-[Solution]
-l  [User] There doesn't exist MAUI code and SEC_RO (option) on the flash.
-
-1.32    S_DA_CODE_AREA_IS_BLANK
- [Description]
- 
-l  [User] There doesn't exist MAUI code on the flash.
- 
-[Solution]
-l  Please choose MAUI file for downloading.
-
-1.33    S_DA_SEC_RO_AREA_IS_BLANK
- [Description]
- 
-l  [User] There doesn't exist SEC_RO (option) on the flash.
- 
-[Solution]
-l  Please choose SEC_RO file (option) for downloading.
-
-1.34    S_DA_UNSUPPORTED_BBCHIP
- [Description]
- 
-l  [User] BROM DLL is too old to support this baseband chip on the phone!
- 
-[Solution]
-l  Please upgrade to the latest Flash Tool then try again.
-
-1.39    S_FT_SET_DOWNLOAD_BLOCK_FAIL
- [Description]
- 
-l  DA_MEM_CMD commands fail!.
- 
-[Reason]
-1.         Download block exceeds target flash size.
-2.         Download block start address is not WORD alignment.
-3.         Download block length is not multiple of WORD.
-[Solution]
-l          Please use another image to download again.
-
-1.40    S_FT_DOWNLOAD_FAIL
- [Description]
- 
-l  Download to flash fail!
- 
-[Solution]
- 
-l  Please press CTRL+ALT+T to turn on debug log then download again.
-
-1.41    S_FT_READBACK_FAIL
- [Description]
- 
-l  Read back to flash fail!
- 
-[Solution]
- 
-l  Please press CTRL+ALT+T to turn on debug log then readback again.
-
-1.42    S_FT_NAND_READADDR_NOT_PAGE_ALIGNMENT
- [Description]
- 
-l  [User] The begining address of read-back operation is not page-aligned on NAND Flash.
- 
-[Solution]
-l  Please check your read address again.
-
-1.43    S_FT_NAND_READLEN_NOT_PAGE_ALIGNMENT
- [Description]
- 
-l  [User] The length of read-back operation is not page-aligned on NAND Flash.
- 
-[Solution]
-l  Please check your read length again.
-
-1.44    S_FT_ENABLE_DRAM_FAIL
- [Description]
- 
-l  [EMI] Enable DRAM Failed.
- 
-[Solution]
-l  Please check your images to make sure it matches with your phone and download again.
-
-1.45    S_DL_GET_DRAM_SETTING_FAIL
- [Description]
- 
-l  [EMI] Obtain DRAM Failed!
- 
-[Solution]
-l  Please check your image to matches with your phone which is to be downloaded.
-
-1.46    S_FT_OTP_ADDR_NOT_WORD_ALIGNMENT
- [Description]
- 
-l  [User] The address given of OTP operation is not word-aligned!
- 
-[Solution]
-l  Please check your OTP address again.
-
-1.47    S_FTHND_FILE_IS_NOT_LOADED_YET
- [Description]
- 
-l  The file is not loaded yet!
- 
-[Solution]
-1.         Please check if the DA path is correct.
-2.         Please check if all the ROM files exist.
-3.         Please check if the scatter file description is sync with the exits ROM files.
-
-1.48    S_FTHND_LIST_IS_EMPTY
- [Description]
- 
-l  Download or Read back list is empty or all disabled!
- 
-[Solution]
-l  Please select at least one entry, [For Android] Please load scatter file first from load folder.
-
-1.49    S_DL_REMOTE_FILE_UNSUPPORTED_BY_BL_AUTOLOAD
- [Description]
- 
-l  [User] Boot Loader Image file is in remote server!
- 
-[Solution]
-l  Please use a local Boot Loader Image file in your computer.
-
-1.50    S_DLIST_BBCHIP_HW_VER_NOT_MATCHED
- [Description]
- 
-l  [H/W] Phone baseband chip is inconsistent with scatter files!
- 
-[Solution]
-l  Please select correct scatter file to match with phone baseband chip and download again.
-
-1.51    S_UNSUPPORTED_VER_OF_AUTH_FILE
- [Description]
- 
-l  [User] The authentication file contains an unsupported version!
- 
-[Solution]
- 
-l  Please check the Flash Tool is the latest version.
-
-1.52    S_DL_PROJECT_ID_DIFF_BETWEEN_MAIN_CODE_AND_JUMP_TBL
-The project IDs between MAUI code and jump table binary file are different! Please check the MAUI and jump table are in the same project.
-
-1.53    S_DL_SCAT_OPEN_FAIL
-[Description]
- 
-l  [User] The scatter file cannot be opened!
- 
-[Solution]
- 
-l  Please check if your scatter file exists and is not used by other software.
-
-1.54    S_DL_UNSECURE_MAUI_TO_SECURE_BB
-Un-secure MAUI cannot be downloaded into Secure BB! Please use security-enabled MAUI.
-
-1.55    S_SECURITY_SLA_INVALID_AUTH_FILE
- [Description]
- 
-l  [User] An invalid authentication file is used!
- 
-[Solution]
- 
-l  This error message will occurs with MSP (MTK Secure Platform) code, Please keep up the MSP code and ask for help.
-
-1.56    S_SECURITY_SF_SECURE_VER_CHECK_FAIL
- [Description]
- 
-l  [User] The secure version of the secure-MAUI is older than that in the handset!
- 
-[Solution]
- 
-l  Please choose a secure-MAUI with an equal or newer secure version.
-
-1.57    S_SECURITY_SF_HANDSET_SECURE_CUSTOM_NAME_NOT_MATCH
- [Description]
- 
-l  [User] The custom name of the secure-MAUI is different from that in the handset!
- 
-[Solution]
- 
-l  Please choose a secure-MAUI with the same custom name.
-
-1.58    S_SECURITY_SECURE_CUSTOM_NAME_NOT_MATCH_BETWEEN_AUTH_AND_DL_HANDLE
- [Description]
- 
-l  [User] The custom name in the authentication file is different from that in secure-MAUI!
- 
-[Solution]
- 
-l  Please choose the same custom name between authentication file and secure-MAUI.
-
-1.59    S_PART_NO_VALID_TABLE
- [Description]
- 
-l  No valid partition table for NAND Flash!
- 
-[Solution]
- 
-l  Please make sure there is a correct load in the target, and select format all + download to try again!
-
-1.60    S_PART_NO_SPACE_FOUND
- [Description]
- 
-l  No space found for partition table!
- 
-[Solution]
-l  Please format all and download again.
-
-1.61    S_DA_UPDATE_BOOTLOADER_FILE_SIZE_EXCEEDS_BOUNDARY_ADDR
- [Description]
- 
-l  DA download boot loader exceeds partition boundary in this device!
- 
-[Solution]
- 
-l  There are too many bad blocks in boot loader reserved area, please physical format all flash and download again.
-
-1.62    S_SECURITY_DAA_FAIL
- [Description]
- 
-l  DA Security download error!
- 
-[Solution]
- 
-l  Security DA is not signed by a correct key, please select correct DA and try again.
-
-1.63    S_DA_UPDATE_BOOTLOADER_EXIST_MAGIC_NOT_MATCHED
-  [Description]
- 
-l  DA DSP_BL check exist error.
- 
-[Solution]
-l  There is no DSP_BL in previous load on target, please format all and download again.
-
-
-2.       Flash Tool Error
-2.1        FT_FIND_USB_ERROR
-[Description]
- 
-l  [Android USB] Cannot find USB port!
- 
-[Solution]
- 
-1.         Lack of battery power for your target, please plug in your battery.
- 
-2.         Hardware problem of your cable, please update a new cable.
- 
-3.         There is a leakage of usb hub if you are using a usb hub.
- 
-4.         You do not install usb driver for Android download yet, please install the correspond driver.
-2.2        FT_FIND_GADGET_USB_ERROR
- [Description]
-l  [Android USB] cannot find Gadget Serial USB port!
- 
-[Solution]
-1.         Lack of battery power for your target, please plug in your battery.
-2.         Hardware problem of your cable, please update a new cable.
-3.         There is a leakage of usb hub if you are using a usb hub.
-4.         You do not install Gadget Serial USB driver for USB META yet, please install the correspond driver.
-
-2.3        FT_DL_PLATFORM_ERROR
- [Description]
-l  [Platform Error] The load and target are inconsistent!
- 
-[Solution]
-l  Please select a correct load according to the target to download.
-
-2.4        FT_UPGRADE_FOLDER_OVERLAPPED
- [Description]
-l  [Android Firmware Upgrade] Backup folder will be overlapped!
- 
-[Solution]
-l  The Backup destination folder exists already. Please move existing data of this folder to another place, and then delete this folder before executing backup!
-
-2.5        FT_UPGRADE_FOLDER_NOT_EXSIT
- [Description]
- 
-l  [Android Firmware Upgrade] The restore file does not exist!
- 
-[Solution]
- 
-l  The nvram calibration file to be restored is not found under "Tool folder\\BackupNvram \\chip id", please re-download again.
-
-2.6        FT_UPGRADE_DIR_CREATE_FAIL
- [Description]
- 
-l  [Android Firmware Upgrade] Create backup directory fails!
- 
-[Solution]
-l  The backup folder could not be created under "\Tool folder\\BackupNvram", please check the folder permission.
-
-2.7        FT_UPGRADE_FILE_NOT_EXSIT
- [Description]
- 
-l  [Android Firmware Upgrade] The restore file does not exist!
- 
-[Solution]
- 
-l  The nvram calibration file to be restored is not found under "Tool folder\\BackupNvram \\chip id", please re-download again.
-
-2.8        FT_UPGRADE_BACKUP_ROM_NOT_EXSIT
- [Description]
- 
-l  [Android Firmware Upgrade] The restore rom image does not exist!
- 
-[Solution]
- 
-l  The restore rom image is not found in scatter file; please make sure the content of scatter file is not modified.
-
-2.9       FT_FIND_NVRAM_ERROR
- [Description]
-l  The phone data has been damaged, cannot find NVRAM information.
- 
-[Solution]
-l  Please select a correct load according to the target to download.
-
-2.10     FT_INVALID_FORMAT_ADDR_ERROR
- [Description]
-         Invalid format address.
- 
-[Solution]
-1.         please check the format address or select auto format, and try again
-
-2.11     FT_FIND_PLATFORM_ERROR
- [Description]
-l  Platform.xml does not exist!
- 
-[Solution]
-l  please check if the platform.xml file exist in the install directory, and try again.
-
-2.12     FT_FIND_STORAGE_ERROR
- [Description]
-l  Storage_setting.xml does not exist!
- 
-[Solution]
-l  please check if the storage.xml file exist in the install directory, and try again.
-
-2.13     FT_FIND_IMAGEMAP_ERROR
- [Description]
-l  Image_map.xml does not exist!
- 
-[Solution]
-l  please check if the image_map.xml exist under install directory, if not, re-install tool again!
-
-2.14     FT_INVALID_SESSION_KEY
- [Description]
- 
-l  Invalid Session Key!
- 
-[Solution]
-l  Please close tool and open it again.
-
-2.15     ERROR_BL_INCONSISTENT
- [Description]
-l  Boot loaders must be selected or deselected together.
- 
-[Solution]
-l  please check the selected image items in the download page.
-
-2.16     ERROR_ROM_MUST_ENABLE
- [Description]
-l  The download image has changed.
- 
-[Solution]
-l  please select Format all + download scene and download again.
-
-2.17     ERROR_PMT_UNAVAILABLE
-[Description]
-l  The phone internal data has corrupt or is a new phone.
-
- 
-[Solution]
-l  Please select Format All + Download download scene and try again.
-2.18     ERROR_DATA_LOST
-[Description]
-l  The Partition has changed large, nvram data will be lost.
- 
-[Solution]
-l  Please select Format all + download scene, and try again.
-
-2.19     ERROR_UNKNOWN_ROM
- [Description]
-l  The loaded image has some unrecognized roms.
- 
-[Solution]
-l  Please check the load scatter file and select correct scatter file to load.
-
-2.10     ERROR_ILLEGAL_ADDRESS
- [Description]
-l  The target load ROM or PMT address is invalid.
- 
-[Solution]
-l  Please re-select and load target images and try again.
-
-2.21     ERROR_FILE_NOT_EXIST
- [Description]
-l  Backup file does not exist.
- 
-[Solution]
-l  please ask Tool owner for help.
-
-2.22     ERROR_CHKSUM_FAIL
- [Description]
-l  The download image data has damage.
- 
-[Solution]
-l  please update the download image and try again.
-
-2.21     E_APP_ADD_RB
-[Description]
- 
-l  You are needed to select the item to read back.
- 
-[Solution]
- 
-1.         Please click the Add button to add read back item
-2.         And at least select one of the add items, and then try again.
-
-2.21     E_APP_ADDR_ALIGN_RB
-[Description]
- 
-l  The read back item address or length is not align, for Nand storage, it must align to 4096, and for EMMC, it must align to 512.
- 
-[Solution]
- 
-1.         Please Check the read back item addr or length whether is align or not?
-2.         If not, please double click the item, select the readback save location and in Readback block start address dialog, modify the start address or length.
-
-2.21     E_APP_BAT_DATA
-[Description]
- 
-l  Error: the download data length is zero.
- 
-[Solution]
- 
-1.         Please check the load file length, make sure it's size is greater than zero.
-
-2.21     E_APP_BAT_DECRYPT
-[Description]
- 
-l  Decrpyt download data failed.
- 
-[Solution]
- 
-1.         Please check the input data whether is right or not?
-
-2.21     E_APP_LOAD_AUTH
-[Description]
- 
-l  Error: the auth file is empty.
- 
-[Solution]
- 
-1.         Please click Auth File button and select specified auth file before DL Certification.
-
-2.21     E_APP_LOAD_DA
-[Description]
- 
-l  You are need load Download Agent file before do download, format, read back and other operation.
- 
-[Solution]
- 
-Please click “Download Agent” button and select correct DA file, and then try again.
-
-2.21     E_APP_LOAD_PRELOADER
-[Description]
- 
-l  The preloader image is not load or not enabled.
- 
-[Solution]
- 
-1.         Please click Scatter-loading button to load scatter file
-2.         Please check the preloader image, and then try again.
-
-2.21     E_APP_LOAD_SCATTER
-[Description]
- 
-l  The scatter file need be load before you can do download, format, read back and other operation.
- 
-[Solution]
- 
-1.         Please click scatter-loading button to select correct scatter file.
-
-2.21     E_APP_NONROM_SELECT
-[Description]
- 
-l  Error: the selected rom file is empty.
- 
-[Solution]
- 
-1.         Please make sure check at least one of the rom in the rom list.
-
-2.21     E_APP_NULL_READ_FILE_OTP
-[Description]
- 
-l  You are not specified the write info before click Update .
- 
-[Solution]
- 
-1.         Please Check the read info whether is empty?
-2.         If empty, please clickSetting button and in the OTP Read Setting dialog, specify the OTP parameter.
-
-2.21     E_APP_NULL_WRITE_FILE_OTP
-[Description]
- 
-l  You are not specified the write info before click Update .
- 
-[Solution]
- 
-1.         Please Check the write info whether is empty?
-2.         If empty, please clickSetting button and in the OTP Write Setting dialog, specify the OTP parameter.
-
-2.21     E_APP_SCATTER_FAILED
-[Description]
- 
-l  Error: the platform or storage is not support by Tool. Please check the name of scatter file which you load is legal or not?
- 
-[Solution]
- 
-1.         Please check loaded scatter file whether is support by tool.
-
-2.21     E_APP_SEC_IMAGE
-[Description]
- 
-l  Error: the load sec image is not a sign image or an unlock image.
- 
-[Solution]
- 
-1.         Please re-load sec image by double click sec image location and select lock image then try again.
-
-2.21     E_APP_SEC_UNLOCK
-[Description]
- 
-l  Error: the load sec image is unlock image.
- 
-[Solution]
- 
-1.         Please re-load sec image by double click sec image location and select lock image then try again.
-
-2.21     E_APP_START_ASSISTANT
-[Description]
- 
-l  Application cannot find Qt Assistant or the Qt Assistant version is not correct.
- 
-[Solution]
- 
-1.       Open the Tool folder and check if the assistant.exe is existing;
- 
-2.       Click assistant.exe to check whether it can start correctly;
- 
-3.       If not, please send the error report to us.
-
-2.21     E_SYS_MEMORY_LOW
- [Description]
- 
-l  Error: the system memory is low.
- 
-[Solution]
- 
-1.         Please close some application to release some memory and try again.
+Phone is totally dead
 
+Message: Phone no longer responds to power button
 
+Solution:
+Follow this guide @ https://www.hovatek.com/forum/thread-286.html
+
+Phone still not working after flashing
+
+Message: Phone still stuck at Bootlogo or Bootloop
+
+Solution: 
+Ensure there's a formatted SD card in the phone before flashing
+Give up to 5 minutes because first boot takes time
+Boot the phone into recovery mode then wipe data / factory reset
+Remove the battery for 30 seconds then slot back in
+Try a firmware upgrade . use MTK droid tools version 2.3.0 to backup usrdata & cache or copy then from the clockworkmod backup
+Try a firmware / ROM from another source
+
+Phone shows white screen, strange colors or divided screen after flashing
+
+Message: You can see the phone responding to buttons and making sound but all is blurred by white screen
+
+Solution:
+The ROM / Firmware you flashed is incompatible, get from another source (especially boot.img , logo.bin and uboot.bin / lk.bin )
+
+Phone automatically disconnecting during flashing
+
+Message: The phone makes the disconnecting sound just as flashing begins, interrupting the process
+
+Solution: 
+Try a different USB cord, USB port & PC
+Try holding down the Volume decrease (you could try volume increase or both) while connecting the phone to PC for flashing
+Launch Device manager (Right-click My Computer > Select Manage)
+Connect the phone to the PC via a USB cord, Device manager should refresh
+Take note of what the phone is detected as (often as Unknown or Mediatek under Other devices)
+Right-click whatever the phone is detect as and select Update Driver Software...
+Select Browse my computer for driver software
+Select Let me pick from a list of device drivers on my computer
+Click Next
+Click Have Disk
+Proceed with the Mediatek (VCOM) driver installation steps described at https://www.hovatek.com/forum/thread-440.html and click Yes if you get an Update Driver warning
+
+Sp Flash tool remains at 0%
+
+Message: Phone only shows charging sign
+
+Meaning: Necessary drivers have not been successfully installed on the PC
+
+Solution: 
+Follow this guide @ https://www.hovatek.com/forum/thread-440.html  to manually install vcom drivers
+If you have installed VCOM drivers but the phone is still only charging then Launch Device manager (Right-click My Computer > Select Manage)
+Connect the phone to the PC via a USB cord, Device manager should refresh
+Take note of what the phone is detected as (often as Unknown or Mediatek under Other devices)
+Right-click whatever the phone is detect as and select Update Driver Software...
+Select Browse my computer for driver software
+Select Let me pick from a list of device drivers on my computer
+Click Next
+Click Have Disk
+Proceed with the Mediatek (VCOM) driver installation steps described at https://www.hovatek.com/forum/thread-440.html and click Yes if you get an Update Driver warning
+
+Stuck at Download DA 100%
+
+Message: Download DA 100%
+
+Meaning: SP Flash tool is having trouble communicating with the device
+
+Solution:
+Uninstall and re-install Mediatek drivers
+
+Error 5054
+
+Message:  BROM ERROR S_DL_GET_DRAM_SETTINGS_FAIL (5054) 
+
+Meaning: The files you're trying to flash do not belong to or are not compatible with the phone you're trying to flash them to OR if you're getting the error while trying to format then it's likely you only loaded scatter file without the rest of the files in the firmware
+
+Solution: 
+If you're trying to flash firmware, then ensure you're using the correct files. If you're sure they are, then try formatting before flashing again
+If you're trying to format, then ensure you the scatter file you loaded onto SP flash tool has complete firmware file locations
+
+Initialize scatter failed
+
+Message: Error: Initialize scatter file failed. Please check the scatter file name you load is legal
+
+Meaning: SP Flash tool doesn't accept the name format of your scatter file
+
+Solution: 
+Ensure the scatter file wasn't renamed. If you're certain it wasn't, try a higher version of SP Flash tool
+
+Error 8038
+
+Message: Error 8038! Android download  pmt is ready and layout has been changed
+
+Meaning: SP Flash tool is having trouble writing to certain partitions due to some incompatibility 
+
+Solution: 
+Format the phone in SP flash tool (Do not format Bootloader) then try flashing the files again using Download
+If Download doesnt work then do a firmware upgrade
+If the MTK backup contains more than one scatter file, retry flashing with the other scatter file.
+If that isn't feasible, try formatting first or use firmware upgrade
+If that doesn't work, open the scatter file using Notepad++ and change __NODL_FAT to FAT by removing "__NODL_" . 
+
+Error 4032
+
+Message: BROM ERROR : S_FT_ENABLE_DRAM_FAIL (4032) [EMI] Enable DRAM fail
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+Probably have the wrong driver installed. Uninstall vcom,  preloader and MTK drivers using usb deview then manually re-install using  https://www.hovatek.com/forum/thread-440.html
+Delete the sp flash tool folder then re-extract
+Ensure the phone is switched off (with battery still inside) before connecting to PC for flashing.
+If that doesn't work, keep  holding  down the volume decrease button just before connecting the phone to PC for flashing (you could try volume increase , power + volume decrease or power + volume increase).
+Consider using the latest version of Sp Flash tool
+Format the phone before trying to flash the file(s) again
+
+Error 5056
+
+Message: BROM ERROR : S_DL_PMT_ERR_NO_SPACE (5069)
+
+Meaning:  The size of a file is larger than the available / possible partition size
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Try another stock ROM
+Change the phone's emmc chip
+
+Error 4001
+
+Message: S_FT_DA_NO_RESPONSE or Da didn't send response data to FlashTool!
+
+Meaning: SP flash tool is having difficulty communicating with the device
+
+Solution:  
+Change the USB-port 
+Run SP flash tool as Admin
+Ensure to install the correct drivers (see https://www.hovatek.com/forum/thread-440.html )
+Try another PC and USB cord
+Ensure the phone is switched off with a charged battery inside when connecting to the PC for flashing
+
+Sp flash tool was successful but phone's calibration doesn't work
+
+Message: Soft keys and touch screen don't work / respond
+
+Solution:
+Edit the scatter file using Notepad++ and remove NODL__  (or set is_download: false to is_download: true ) in front of the items you have in the backup folder but aren't listed when you load the scatter file in SP flash tool. This way, these items will become listed when  next you load the scatter file (after saving of course) and therefore flashable
+
+Error 4008
+
+Message: BROM ERROR : S_FT_DOWNLOAD_FAIL (4008)
+
+Meaning: SP Flash tool encountered an error while attempting to flash files
+
+Solution: 
+Ensure the battery is in the phone and the phone is switched off before connecting for flashing
+Try using a higher version of SP flash tool
+Change the USB cord and port or PC
+Use the format option then download in SP flash tool
+
+Error 3149
+
+Message: BROM ERROR : S_DA_SDMMC_WRITE_FAILED (3149)
+
+Meaning: SP Flash tool was unable to flash files to the phone
+
+Solution:
+Ensure to run the latest version of SP flash tool as Administrator
+Format first then Download
+Don't tick a box with an unspecified / empty file path
+Ensure the phone is switched off (with a well charged battery in it ) before connecting to PC for flashing
+Try a different PC
+Try a different ROM
+Try a different USB cord
+Try formatting the phone first before flashing files to it
+
+Error 3168 
+
+Message: BROM ERROR: S_CHIP_TYRE_NOT_MATCH(3168)
+
+Meaning: Sp flash tool believes there's a mismatch between the information provided in the scatter file and the phone's info.
+
+Solution:
+Ensure you're using the ROM for the exact phone model
+Try a higher version of SP flash tool
+Ensure to install the correct drivers for the phone on the PC
+
+Error 2004 
+
+Message: BROM ERROR : S_FT_DOWNLOAD_FAIL (2004)
+
+Meaning: There was an interruption in the communication between SP flash tool and the device
+
+Solution:
+A Secure Boot Download Agent (DA) might be required
+Take out and reinsert the battery
+Try using a different USB cord, port and PC
+Right-click flash_tool.exe > Select Properties > Select Compatibility > Set to Windows XP Service Pack 3 > Click Apply > Click OK > Run SP flash tool as Administrator
+Try a different USB cord
+Try a different port on the PC or another PC
+Ensure the battery is well changed and inside the switched off phone before connecting to PC for flashing
+
+USB device not recognized
+
+Message: USB device not recognized prompt at system tray after connecting  the phone to PC
+
+Meaning: The PC is having problems communicating with the phone (often due to interruption, hardware or driver problems)
+
+Solution:
+Follow the guide @ https://www.hovatek.com/forum/thread-808.html
+ Try a different USB cord, PC port or PC
+
+Error 1013 
+
+Message: BROM ERROR:S_COM_PORT_OPEN Fail(1013)
+
+Meaning: SP flash tool encountered an error while attempting to communicate with the phone via the target port
+
+Solution:
+Try using a different port on the PC
+Try a different version of SP flash tool
+Install VCOM drivers using  https://www.hovatek.com/forum/thread-440.html
+Ensure the phone is switched off with battery inside before connecting to the PC for flashing
+Try using a different PC
+Try changing the USB cord
+Ensure the phone's USB port isn't damaged
+
+Error 2020 
+
+Message: BROM ERROR : S_BROM_CHKSUM16_MEM_RESULT_DIFF (2020)
+
+Meaning: SP flash tool encountered a problem moving the files to be flashed into the phone's internal SRAM
+
+Solution:
+Use the latest version of SP flash tool
+In SP flash tool, navigate to Options > Option > Connection > Battery. Set it to "with battery".
+Use the Format all + Download option
+Hold both volume buttons before connecting to the PC for flashing and release once flashing begins
+
+Error 5007 
+
+Message: BROM ERROR : S_FTHND_FILE_IS_NOT_LOADED_YET (5007)
+
+Meaning: You're trying to flash an item with an unspecified path (no file selected for the ticked item/box)
+
+Solution:
+Ensure the scatter file is in the same directory as the other file(s) to be flashed
+Untick any item whose file you do not have or whose path is not specified; yet, is ticked / selected for flashing
+
+Error 4010
+
+Message: BROM ERROR : S_FT_FORMAT_FAIL
+
+Meaning: The blocks map in the scatter file doesn't match the phone's partition sizes
+
+Solution:
+ Try using the latest version of Sp flash tool
+Try using another firmware for the exact phone model
+
+Error 3182
+
+Message: BROM ERROR: S_STORAGE_NOT_MATCH (3182)
+
+Meaning: The ROM your're trying to flash is not compatible with the target device
+
+Solution:
+Download the ROM for the exact phone model you're trying to flash
+Ensure to install VCOM drivers on the PC
+Don't tick any box (after loading the scatter file) without a file path / whose corresponding file has not been automatically or manually loaded.
+
+Error 6012
+
+Message: BROM ERROR: S_SECURITY_SF_CODE_COMMAND_FORBIDDEN (6012), MSP ERROR CODE: 0X00
+
+Meaning: The Download-Agent being used is incompatible with the phone
+
+Solution:
+Set Download-Agent to MTK_AllInOne_DA.bin
+
+Error 1042
+
+Message: BROM ERROR: S_TIMEOUT (1042)
+
+Meaning: The flashing process took too long so SP flash tool encountered a timeout
+
+Solution:
+Try flashing one file at a time
+Use the latest version of SP flash tool
+Try using a different PC and USB cord
+Try Infinix Flash tool @ https://www.hovatek.com/forum/thread-9224.html
+
+Error 2
+
+Message: BROM ERROR: ?? (2)
+
+Meaning: SP Flash tool was unable to communicate with the phone
+
+Solution: 
+Try using a different PC (preferably Windows 7 or lower)
+Install the correct VCOM drivers for your PC's OS and architecture (32 or 64 bit)
+Try another USB cord
+
+Error 2005
+
+Message: BROM ERROR: S_BROM_CMD_STARTCMD_FAIL (2005)
+
+Meaning: The device attempted to power on before SP flash tool could flash files to it
+
+Solution:
+Ensure the battery is well charged
+Take out and reinsert the battery
+Try using a different USB cord, port and PC
+Right-click flash_tool.exe > Select Properties > Select Compatibility > Set to Windows XP Service Pack 3 > Click Apply > Click OK > Run SP flash tool as Administrator
+Try a different USB cord
+Try a different port on the PC or another PC
+Ensure the battery is well changed and inside the switched off phone before connecting to PC for flashing
+Do not hold any button when connecting to PC
+
+Error 4058
+
+Message: BROM ERROR: S_FT_GET_MEMORY_FAIL (4058)
+
+Meaning: SP flash tool was unable to locate the partition you're trying to flash to
+
+Solution:
+Untick any item (box) with a blank or empty Location
+Ensure that the memory and other components are properly seated on the board
+
+Error 3178
+
+Message: BROM_ERROR_S_STORAGE_NOT_MATCH (3178)
+
+Meaning: The firmware you are trying to flash isnt compatible with your phone
+
+Solution:
+Try flashing another firmware for your exact phone model / variant
+
+Error 8406
+
+Message: SP FLASH TOOL ERROR (8406)
+
+Meaning: There is some compatibility problem interrupting the flashing process
+
+Solution:
+Try flashing another firmware for your exact model
+Update VCOM drivers for the device under Device manager
+
+Error 1012
+
+Message: BROM ERROR: S_NOT_ENOUGH_MEMORY (1012)
+
+Meaning: The version of SP flash tool you're using doesn't support the size(s) of the file(s) in the firmware / stock ROM.
+
+Solution:
+Use the latest version of SP flash tool
+
+Error 3140
+
+Message: BROM ERROR : S_DA_UPDATE_BOOLOADER_EXIST_MAGIC_NOT_MATCHED
+
+Meaning: SP flash tool encountered an error flashing a selected file to a non-specified partition
+
+Solution:
+Try using the latest version of SP flash tool
+Use the format option then download in SP flash tool
+
+Error 8417
+
+Message:  BROM ERROR: Initialize scatter file failed. Please check the scatter file name you load is legal
+
+Meaning: The format of the scatter file is invalid
+
+Solution:
+Open the scatter file in Notepad++, the first line must begining with:
+
+############################################################################################################## General Setting #
+
+If there is anything else above this then delete it and save the scatter file
+
+Error 6047
+
+Message: BROM ERROR: S_SECURITY_SECURE_USB_DL_IMAGE_HASH_FAIL
+
+Meaning: Hash (integrity) check of the images being flashed failed.
+
+Solution:
+Use SP Flash Tool V5.1516.00
+Ensure to select the right Download-Agent
+Navigate to Options > Option > Download and untick DA DLL All.....
+
+Error 6010
+
+Message: BROM ERROR: SP FLASHTOOL ERROR 6010 CODE DOWNLOAD FORBIDDEN
+
+Meaning: The phone has a protected bootloader
+
+Solution:
+Untick Preloader and flash the rest
+
+Error: 0xFDA
+
+Message: BROM ERROR: S_FT_GET_MEMORY_FAIL (0xFDA)
+
+Meaning: SP Flash tool encountered an error reading the phone's storage
+
+Solution:
+Try using a different USB Port, Cord and PC
+
+Error 0x13BE
+
+Message: S_DL_GET_DRAM_SETTING_FAIL (0x13BE)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution:
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+
+Error:?? (0x3)
+
+Message: BROM ERROR:?? (0x3)
+
+Meaning: SP Flash tool encountered an error maintaining a connection to the device during flashing
+
+Solution
+Reinstall the VCOM drivers
+Try a different PC and USB cord
+The scatter file needs to be modified using https://www.hovatek.com/forum/thread-12719.html
+
+PRO_INFO: Failed to get PMT info
+
+Message: PRO_INFO: Failed to get PMT info
+
+Meaning: SP flash tool is having problems reading the phone
+
+Solution
+Try using a different PC and USB cord
+Ensure the phone is switched off (with a charged battery inside) when you connect
+
+Error 0x7D4
+
+Message: BROM ERROR: S_BROM_DOWNLOAD_DA_FAIL
+
+Meaning: SP Flash tool encountered an error writing to the phone
+
+Solution
+Try changing the Download Agent (Secure Boot DA)
+Try using a different USB cord, PC port and PC
+Use the latest version of SP flash tool
+Ensure the battery is well charged and the phone's USB port isn't faulty
+Ensure the file name matches what's in the scatter file
+
+Error 6124
+
+Message: BROM ERROR: S_SECURITY_INVALID_PROJECT (6124), MSO ERROR CODE: 0X00
+
+Meaning: Wrong flash settings or firmware
+
+Solution:
+ Ensure you set the correct Download-Agent in SP flash tool and are using a firmware for your exact model
+Go to  Options > Option > Connection > USB Speed > Full Speed
+Go to  Options > Option > Download > Untick DA DL All with Checksum
+
+Error 0x8
+
+Message: BROM ERROR: ?? (0x8)
+
+Meaning:  The size of a file is larger than the available / possible partition size
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Try another stock ROM
+Change the phone's emmc chip
+Try using a different PC
+
+Error OXFC0
+
+Message: BROM ERROR S_FT_ENABLE_DRAM_FAIL (OXFC0)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+Probably have the wrong driver installed. Uninstall vcom,  preloader and MTK drivers using usb deview then manually re-install using  https://www.hovatek.com/forum/thread-440.html
+Delete the sp flash tool folder then re-extract
+Ensure the phone is switched off (with battery still inside) before connecting to PC for flashing.
+If that doesn't work, keep  holding  down the volume decrease button just before connecting the phone to PC for flashing (you could try volume increase , power + volume decrease or power + volume increase).
+Consider using the latest version of Sp Flash tool
+Format the phone before trying to flash the file(s) again
+
+Error 0X411
+
+Message: BROM ERROR: S_CHKSUM_ERROR (0X411)
+
+Meaning: There was a checksum error when flashing the firmware
+
+Solution
+Delete any file with checksum in its name from the firmware folder
+Go to Options > Option > Download > Untick Da DL all with checksum
+
+Error 0xFA1
+
+Message: BROM ERROR : S_FT_DA_NO_RESPONSE (0xFA1)
+
+Meaning: SP Flash tool encountered an error communicating with the device
+
+Solution
+Try using a different port, PC and USB cord
+Ensure the phone is switched off with a charged battery inside
+Do not hold any button when connecting for flashing
+Ensure to install VCOM drivers @ https://www.hovatek.com/forum/thread-440.html
+
+Error 4017
+
+Message: BROM ERROR: S_FT_NAND_READLEN_NOT_ALIGNMENT (4017)
+
+Meaning: You're trying to flash a file that has not been processed for flashing in SP flash tool
+
+Solution:
+If you're using an MTK Droid tools backup then ensure to carry out Phase II @ https://www.hovatek.com/forum/thread-468.html
+
+TOOL DL image Fail !
+
+Message: TOOL DL image Fail !
+
+Meaning: The firmware was flashed with Da DL all with Checksum disabled
+
+Solution:
+In SP flash tool, navigate to Options > Option > Download > Tick Da Dl all with checksum > Reflash the firmware
+
+Please select one ROM at least before execution
+
+Message: Please select one ROM at least before execution
+
+Meaning: SP flash tool fails to recognize that there is an item ticked
+
+Solution:
+Select the scatter file again and untick all items you do not wish to flash one after the other. Don't use the checkbox beside "Name" in SP flash tool
+
+Error 0xFC0
+
+Message: BROM ERROR : S_FT_ENABLE_DRAM_FAIL (0xFC0)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+Probably have the wrong driver installed. Uninstall vcom,  preloader and MTK drivers using usb deview then manually re-install using  https://www.hovatek.com/forum/thread-440.html
+Delete the sp flash tool folder then re-extract
+Ensure the phone is switched off (with battery still inside) before connecting to PC for flashing.
+If that doesn't work, keep  holding  down the volume decrease button just before connecting the phone to PC for flashing (you could try volume increase , power + volume decrease or power + volume increase).
+Consider using the latest version of Sp Flash tool
+Format the phone before trying to flash the file(s) again
+
+Error: 0xC0050003
+
+Message: BROM ERROR: STATUS_DOWNLOAD_EXCEPTION (0xC0050003)
+
+Meaning: There was an interruption during writing to one or more partitions
+
+Solution:
+Repeat flashing with the latest version of SP Flash Tool
+Try using a different Port, USB cord and PC
+Try flashing one partition at a time to figure out which partition results to the error
+Try flashing using a different software e.g miracle thunder, cm2 or any other dongle tool you might have
+
+Error: 0xc002002A
+
+Message: BROM ERROR: STATUS_SEC_IMG_TYPE_MISMATCH (0xc002002A)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device, you have selected the wrong flashing settings or verified boot is enabled
+
+Solution: 
+Try unlocking the bootloader before flashing
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+Probably have the wrong driver installed. Uninstall vcom,  preloader and MTK drivers using usb deview then manually re-install using  https://www.hovatek.com/forum/thread-440.html
+Delete the sp flash tool folder then re-extract
+Ensure the phone is switched off (with battery still inside) before connecting to PC for flashing.
+If that doesn't work, keep  holding  down the volume decrease button just before connecting the phone to PC for flashing (you could try volume increase , power + volume decrease or power + volume increase).
+Consider using the latest version of Sp Flash tool
+Format the phone before trying to flash the file(s) again
+For transsion phones (e.g tecno, infinix, itel, e.t.c ) running android 10, flash the device using latest cm2 mtk module @ https://www.hovatek.com/forum/thread-21827.html
+
+Error 0XFA8
+
+Message: BROM ERROR: S_FT_DOWNLOAD_FAIL (0XFA8)
+
+Meaning: SP Flash tool encountered an error while attempting to flash files
+
+Solution: 
+Ensure the battery is in the phone and the phone is switched off before connecting for flashing
+Try using the latest version of SP flash tool
+Change the USB cord and port or PC
+Use the format option then download in SP flash tool
+Try changing the Download Agent setting in SP Flash tool
+
+Error 0x7D5
+
+Message: BROM ERROR: S_BROM_CMD_STARTCMD_FAIL (0x7D5)
+
+Meaning: The device attempted to power on before SP flash tool could flash files to it
+
+Solution:
+Ensure the battery is well charged
+Take out and reinsert the battery
+Try using a different USB cord, port and PC
+Right-click flash_tool.exe > Select Properties > Select Compatibility > Set to Windows XP Service Pack 3 > Click Apply > Click OK > Run SP flash tool as Administrator
+Try a different USB cord
+Try a different port on the PC or another PC
+Ensure the battery is well changed and inside the switched off phone before connecting to PC for flashing
+Do not hold any button when connecting to PC
+
+Boundary Check Failed
+
+Message: Boundary Check Failed: rom_end_addr >= next rom begin_addr.
+
+Meaning: The firmware has a partition that wasn't included while backing up the firmware. SP flash tool encounters an error in the end address of the preloader partition and the begin address of PGPT partition (i.e the partition which wasn't included in the backup)
+
+Solution:
+Close the error message,  then manually select the location of all files in the scatter file from the bottom to the top. Meaning that preloader would be the last thing you'll select
+If that doesn't work, open and modify the scatter file using Notepad++ then change "boundary_check: True" to "boundary_check: False"
+If after modifying the scatter file and you still encounter the same or a different error, then flash the firmware using miracle box @ https://www.hovatek.com/forum/thread-14106.html
+
+Error 3179
+
+Message: BROM ERROR : S_CHIP_TYPE_NOT_MATCH (3179)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+Probably have the wrong driver installed. Uninstall vcom,  preloader and MTK drivers using usb deview then manually re-install using  https://www.hovatek.com/forum/thread-440.html
+Delete the sp flash tool folder then re-extract
+Ensure the phone is switched off (with battery still inside) before connecting to PC for flashing.
+If that doesn't work, keep  holding  down the volume decrease button just before connecting the phone to PC for flashing (you could try volume increase , power + volume decrease or power + volume increase).
+Consider using the latest version of Sp Flash tool
+Format the phone before trying to flash the file(s) again
+
+Error 5073
+
+Message: BROM ERROR : S_DL_READ_PT_FAIL (5073)
+
+Meaning: SP flash tool encountered an error while trying to format the device
+
+Solution: 
+Use "download only" under the download tab to flash the firmware then you can format if need be.
+
+SP Flash Tool force-closes when scatter file is loaded
+
+Message: SP Flash tool automatically closes after selecting a scatter file
+
+Meaning: SP Flash Tool doesn't support the scatter file due to its blocks or configuration
+
+Solution:
+Open the scatter file using Notepad++ >  Locate the last partition on the list (flashinfo) > change is_download from true to false > Save the scatter file and reload
+
+Storage type mismatch!
+
+Message: scatter storage type is HW_STORAGE_EMMC
+target storage type is HW_STORAGE_NAND
+
+Meaning: There's a mismatch between the phone's storage type and that which the scatter file expects
+
+Solution:
+Try using a different firmware or a Chinese box @ https://www.hovatek.com/forum/forum-97.html
+Try a different version of SP Flash tool and run as Administrator
+
+Error 8045
+
+Message: No Valid Partition Management Table (PMT) for storage
+
+Meaning: SP Flash tool encountered a problem identifying the device's partitions ahead of file writes
+
+Solution:
+Try Flashing the firmware using Download only
+
+Error 1041
+
+Message: BROM ERROR: S_CHKSUM_ERROR (1041)
+
+Meaning: There was a checksum error when flashing the firmware
+
+Solution
+Delete any file with checksum in its name from the firmware folder
+Go to Options > Option > Download > Untick Da DL all with checksum
+
+0x00
+
+Message: BROM ERROR: S_SECURITY_AC_REGION_NOT_FOUND_IN_SECROIMG (6128), MSP ERROR CODE: 0X00
+
+Meaning:  The ROM contains a Checksum file but DL All With CheckSum was unticked
+
+Solution:
+Ensure to tick DL All With CheckSum under Options > Option > Download
+
+BROM ERROR : S_SECURITY_SECRO_HASH_INCORRECT (6126) , MSP ERROE CODE : 0x00
+
+Message: BROM ERROR : S_SECURITY_SECRO_HASH_INCORRECT (6126) , MSP ERROE CODE : 0x00
+
+Meaning:  The ROM contains a Checksum file but DL All With CheckSum was unticked
+
+Solution:
+Ensure to tick DL All With CheckSum under Options > Option > Download
+
+Error 0xC0050005
+
+Message: ERROR STATUS_EXT_RAM_EXCEPTION (0xC0050005)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution:
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Ensure you tick the boxes for only the files present in the ROM you're about to flash
+Ensure that the battery of your device is well charged
+Try the technique used @ https://www.hovatek.com/blog/my-experien...g-stylo-6/
+
+Error (3)
+
+Message: BROM ERROR: ?? (3)
+
+Meaning: There's a problem with the format of the scatter file or file(s) being flashed. An example is trying to flash .bin files using SP Flash Tool
+
+Solution:
+Check the scatter file and files you're about flashing to be sure they're not meant to be flashed using a different tool
+
+Error 6104
+
+Message:  BROM ERROR: S_SECURITY_SECURE_USB_DL_DA_RETURN_INVALID_TYPE (6104), MSP ERROR CODE : 0X00
+
+Meaning: Wrong flash settings or firmware
+
+Solution:
+ Ensure you set the correct Download-Agent in SP flash tool and are using a firmware for your exact model
+Go to  Options > Option > Connection > USB Speed > Full Speed
+Go to  Options > Option > Download > Untick DA DL All with Checksum
+
+Error 3183 
+
+Message: BROM ERROR: S_CHIP_TYRE_NOT_MATCH(3183)
+
+Meaning: Sp flash tool believes there's a mismatch between the information provided in the scatter file and the phone's info.
+
+Solution:
+Ensure you're using the ROM for the exact phone model
+Try a higher version of SP flash tool
+Ensure to install the correct drivers for the phone on the Pc
+
+Error 0xC0060001
+
+Message: BROM ERROR: S_BROM_CMD_STARTCMD_FAIL (0xC0060001)
+
+Meaning: The device attempted to power on before SP flash tool could flash files to it
+
+Solution:
+The device might require a custom Download Agent (DA) to be flashed
+Go to Options > Option > Connection and set connection to USB high speed auto detect. Only choose UART when you have a device detected in the chosen UART port
+Ensure the battery is well charged
+Take out and reinsert the battery
+Try using a different USB cord, port and PC
+Right-click flash_tool.exe > Select Properties > Select Compatibility > Set to Windows XP Service Pack 3 > Click Apply > Click OK > Run SP flash tool as Administrator
+Try a different USB cord
+Try a different port on the PC or another PC
+Ensure the battery is well changed and inside the switched off phone before connecting to PC for flashing
+Do not hold any button when connecting to PC
+
+PMT changed for the ROM
+
+Message: PMT changed for the ROM; it must be downloaded
+
+Meaning: The partition table about to be written (from the scatter file) is different from the phone's current partition table layout
+
+Solution:
+Ensure that the scatter file / files you're trying to flash are actually for your exact model
+If you're trying to flash just a few files and not the firmware then you need to get the firmware to complement and then flash using download only
+If you're trying to flash the full firmware then try using the Firmware Upgrade option or Format first before download only
+
+Error 6004
+
+Message: ERROR: S_SECURITY_SLA_FAIL (6004), MSP ERROE CODE: 0X00
+
+Meaning: The download agent isn't compatible with the device
+
+Solution:
+Try choosing a different Download Agent, version or tool
+Ensure you're using the right Authentication file
+
+Storage type mismatch!
+
+Message:
+scatter storage type is HW_STORAGE_EMMC
+target storage type is HW_STORAGE_NONE
+
+Meaning: There's a mismatch between the phone's storage type and that which the scatter file expects
+
+Solution:
+Try using SP Flash tool Version 3.x
+
+Error 6045
+
+Message: S_SECURITY_SECURE_USB_DL_IMAGE_SIGN_HEADER_NOT_FOUND (6045) , MSP ERROE CODE : 0x00
+
+Meaning:  The image files you are trying to flash doesn't contain the -sign header.
+
+Solution:
+Use SP Flash Tool V5.1532.00 @ https://www.hovatek.com/forum/thread-13970.html
+Load the Auth file for the device in the flash tool
+Ty flashing a factory (signed) firmware
+Flash the unsigned image using the 'Write Memory' tab in SP flash tool. To activate write memory tab, press 'Ctrl + Alt + V' to enabled advanced mode then click Window > Write Memory
+
+Error 2035
+
+Message: BROM ERROR: S_BROM_CMD_JUMP_DA_FAIL (2035)
+
+Meaning: SP Flash tool encountered an error connecting to the device.
+
+Solution
+Ensure the battery is inserted and you're not holding any button when connecting to PC for flashing
+Uninstall all Mediatek drivers then re-install VCOM drivers
+Disable any modem manager or software which might be blocking ports on the PC
+For Linux / Ubuntu users, make sure you installed libusb-dev then blacklist Ubuntu’s modem manager (because it controls port /dev/ttyACM0, which is disabling SP Flash Tool from running properly).
+
+Error 0x412
+
+Message: BROM ERROR: S_TIMEOUT (0X412)
+
+Meaning SP Flash tool encountered a timeout when trying to flash (i.e flashing took too long to start or complete)
+
+Solution
+Ensure that files are actually loaded (with valid location) in SP flash tool (i.e location should not be empty)
+Try flashing one file at a time
+Use a higher version of SP Flash tool
+Untick the large files or find smaller alternatives
+
+Error 6029
+
+Message: S_SECURITY_SEND_AUTH_FAIL (6029) , MSP ERROE CODE : 0x00
+
+Meaning SP Flash tool can't authenticate the files you are trying to flash
+
+Solution
+Try another ROM / firmware from a different source
+Get an Auth file for your phone model
+For Tecno, Infinix & Itel devices, use Software Download tool (Format + Download)
+
+Error 0x93AF
+
+Message: ROM[logo] checksum mismatch checksum_config[0x93af],checksum_val[0x94ae]
+
+Meaning SP Flash tool encountered a checksum error
+
+Solution
+Open the checksum file using notepad++, search for 0x93af and replace with 0x94ae
+Delete any checksum file in the rom
+
+Error 5011
+
+Message: S_DL_SCAT_INCORRECT_FORMAT (5011)
+
+Meaning The scatter file has incorrect format. The scatter file has been badly created / modified
+
+Solution
+Download a different scatter file (one that doesn't pop the same incorrect scatter file error in SPft), open the two scatter files using Notepad++ and you will notice that the incorrect scatter file has its items slightly shifted to the left. Edit the incorrect scatter file to the same format arrangement as in the working scatter file.
+After modifying the scatter file using the method above, ensure to use a recent version of SP flash tool e.g SP flash tool v5.1728
+Download another ROM / firmware from a different source
+
+Error 0xC52
+
+Message: ERROR: S_DA_SDMMC_WRITE_FAILED (0XC52)
+
+Meaning: SP Flash tool was unable to flash files to the phone
+
+Solution:
+Ensure to run the latest version of SP flash tool as Administrator
+Format first then Download
+Don't tick a box with an unspecified / empty file path
+Ensure the phone is switched off (with a well charged battery in it ) before connecting to PC for flashing
+Try a different PC
+Try a different ROM
+Try a different USB cord
+Try formatting the phone first before flashing files to it
+
+Error 0XFAA
+
+Message: BROM ERROR: S_FT_FORMAT_FAIL (0XFAA)
+
+Meaning: The source (firmware) doesn't properly match the target (phone)
+
+Solution:
+Try using a different firmware for your phone model
+Ensure you're using the right tool to flash the firmware
+
+Error 5072
+
+Message: ERROR: S_DL_WRITE_PT_FAIL (5072)
+
+Meaning: SP flash tool is having problems writing to one or more partitions
+
+Solution
+Try using a different PC and USB cord
+Ensure the phone is switched off (with a charged battery inside) when you connect
+Do not hold any button when connecting to PC for flashing
+
+Error 0xC0070004
+
+Message: ERROR: STATUS_DA_HASH_MISMATCH (0xC0070004)
+
+Meaning: Hash (integrity) check of the images being flashed failed.
+
+Solution:
+Use SP Flash Tool V5.1516.00
+Ensure to select the right Download-Agent
+Navigate to Options > Option > Download and untick DA DLL All.....
+Try a different firmware build
+
+Error 6046
+
+Message: BROM ERROR: S_SECURITY_USB_DL_IMAGE_SIGNATURE_VERIFY_FAIL (6064), MSP ERROR CODE: 0X0
+
+Meaning: Signature verification for the firmware failed
+
+Solution:
+Set Download-Agent to MTK_AllInOne_DA.bin
+Navigate to Options > Option > Download and untick DA DLL All.....
+Delete any checksum file in the firmware folder
+
+Error 0XC0060003
+
+Message: ERROR: STATUS_BROM_CMD_SEND_DA_FAIL (0XC0060003)
+
+Meaning: SP flash tool is unable to read or write to the device using the preset Download Agent
+
+Solution:
+The device might require a custom Download Agent (DA) to be flashed
+Ensure the battery is well charged
+Take out and reinsert the battery
+Try using a different USB cord, port and PC
+Right-click flash_tool.exe > Select Properties > Select Compatibility > Set to Windows XP Service Pack 3 > Click Apply > Click OK > Run SP flash tool as Administrator
+Try a different USB cord
+Try a different port on the PC or another PC
+Ensure the battery is well changed and inside the switched off phone before connecting to PC for flashing
+Do not hold any button when connecting to PC
+
+Error 0x94010000
+
+Message: CHIP TYPE NOT match ! target refuse value: 0x94010000
+
+Meaning: The device likely has a locked / encrypted preloader
+
+Solution:
+Untick preloader when flashing in Sp flash tool
+
+Error 0xC0020029
+
+Message: BROM ERROR: STATUS_SEC_IMGHDR_TYPE_MISMATCH (0xC0020029)
+
+Meaning: You are trying to flash modified files to a device that only accepts signed or verified images
+
+Solution:
+Download and flash the official firmware (usually have -verified or -signed prefixes)
+If possible, unlock the bootloader then retry flashing
+Download the latest version of SP flash tool
+
+Error 5000
+
+Message: BROM ERROR : S_AUTH_HANDLE_IS_NOT_READY (5000)
+
+Meaning: The device has a secure boot / bootloader
+
+Solution:
+You'll need an Auth (*.auth) or custom Download Agent (DA) file for the device to proceed with SP flash tool
+For Tecno, Infinix & Itel devices, use Software Download tool (Format + Download)
+
+Error 0xC002002C
+
+Message: ERROR : STATUS_SEC_IMG_HASH_VFY_FAIL (0xC002002C)
+
+Meaning: The device has a verified boot
+
+Solution:
+You'll need to download and flash the official firmware (usually have -verified or -sign in their file name)
+
+Error 0xC0030012
+
+Message: ERROR: STATUS_SEC_AUTH_FILE_NEEDED (0xC0030012)
+
+Meaning: The device has a secure boot
+
+Solution:
+You'll need to use a custom authentication file (auth) for the model
+
+Error 0xC0060005
+
+Message: ERROR: STATUS_BROM_CMD_FAIL (0xC0060005)
+
+Meaning: The device attempted to power on before SP flash tool could flash files to it
+
+Solution:
+You'll need to use a custom Download Agent (DA) for the model
+
+Error 8
+
+Message: ERROR: ?? (8)
+
+Meaning:  The size of a file is larger than the available / possible partition size
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Try another stock ROM
+Change the phone's emmc chip
+Try using a different PC
+
+Error 5002
+
+Message: ERROR: S_INVALID_DA_FILE (5002)
+
+Meaning:  SP flash tool does not recognize the DA file. Most likely the DA file is locked / encrypted for use on a specific tool
+
+Solution: 
+You'll either need to search for a DA file compatible with SP flash tool or use the specified tool for the DA file you downloaded [specified tool are usually hardware box / dongles e.g CM2mtk, volcano tool,  e.t.c]
+
+Error 0xC0030001
+
+Message: Error: STATUS_SCATTER_FILE_INVALID (0xC0030001)
+
+Meaning:  SP flash tool does not recognize the scatter file or the location of the scatter file.
+
+Solution: 
+Rename the folder location of the scatter file including the parent folders too, remove all special characters / non English characters from the folder name
+If that doesn't work then create a new folder in your desktop then copy and paste ONLY the firmware files into the new folder then retry flashing the contents on the new folder
+
+Partition[nvram] should NOT set "is_download" to true in scatter file
+
+Message: Partition[nvram] should NOT set "is_download" to true in scatter file
+
+Meaning:  The scatter file loaded has nvram set to download but doesn't specify a file name for nvram. This error is common in later versions of SP flash tool
+
+Solution: 
+Modify the scatter file using notepad++ and add a file name for nvram partition. e.g "file_name: nvram.bin" then save and ensure there's an nvram.bin file in the same folder as the scatter file. If that doesn't work then
+Modify the scatter file using notepad++ and set "is_download: false" for nvram partition
+
+Error 0xC0050001
+
+Message: ERROR: STATUS_DEVICE_CTRL_EXCEPTION (0XC0050001)
+
+Meaning: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
+
+Solution:
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Uninstall and re-install Mediatek drivers
+
+Error 0xC002001B
+
+Message: ERROR: STATUS_SEC_PUBK_AUTH_MISMATCH_N (0xC002001B)
+
+Meaning: The device has a verified boot
+
+Solution:
+You'll need to download and flash the official firmware (usually have -verified or -sign in their file name)
+
+Error 5014
+
+Message: ERROR: S_DL_SCAT_ADDR_IS_NOT_ASCENDING_ORDER (5014)
+
+Meaning: The scatter file was badly created or modified, depending on how you obtained the scatter file
+
+Solution:
+Input the correct values for all 'physical_start_addr' in the scatter file. The correct value for 'physical_start_addr' is the same as the value on 'linear_start_addr'
+
+Error 0x7F3
+
+Message: BROM ERROR: S_BROM_CMD_JUMP_DA_FAIL
+
+Meaning: SP Flash tool encountered an error connecting to the device.
+
+Solution
+Ensure the battery is inserted and you're not holding any button when connecting to PC for flashing
+Uninstall all Mediatek drivers then re-install VCOM drivers
+Disable any modem manager or software which might be blocking ports on the PC
+For Linux / Ubuntu users, make sure you installed libusb-dev then blacklist Ubuntu’s modem manager (because it controls port /dev/ttyACM0, which is disabling SP Flash Tool from running properly).
+
+Error 3154
+
+Message: BROM ERROR : S_DA_SDMMC_WRITE_FAILED (3154)
+
+Meaning: SP Flash tool was unable to flash files to the phone
+
+Solution:
+Ensure to run the latest version of SP flash tool as Administrator
+Format first then Download
+Don't tick a box with an unspecified / empty file path
+Ensure the phone is switched off (with a well charged battery in it ) before connecting to PC for flashing
+Try a different PC
+Try a different ROM
+Try a different USB cord
+Try formatting the phone first before flashing files to it
+
+Error 0xC0010005
+
+Message: BROM ERROR: STATUS_PROTOCOL_ERR (0xC0010005)
+
+Meaning: Sp flash tool is having problems communicating with the device
+
+Solution: Ensure the phone is properly switched off (with battery connected) before connecting to PC for flashing.
+
+Error 0xC0010007
+
+Message: BROM ERROR: INSUFFICIENT_BUFFER (0xC0010007)
+
+Meaning: SP flash tool seems to be blocked from flashing files to the phone
+
+Solution:
+If you can boot to fastboot mode, then unlock the bootloader then retry flashing
+Untick OEM then retry flashing
+
+Error 0xC0050007
+
+Message: ERROR: STATUS_READ_DATA_EXCEPTION (0xC0050007)
+
+Meaning: SP flash tool is unable to readback from the connected phone (esp where the readback length is too large)
+
+Solution:
+Download and install updated MTK drivers on your PC at [ Login to download] 
+If you're performing a readback, try skipping cache and userdata; see https://www.hovatek.com/forum/thread-22701.html
+
+Error 0x13CD
+
+Message: BROM ERROR : S_DL_PMT_ERR_NO_SPACE (5069)
+
+Meaning:  The size of a file is larger than the available / possible partition size
+
+Solution: 
+Ensure that the file(s) you're trying to flash are actually for your exact phone model
+Try another stock ROM
+Change the phone's emmc chip
+
+LIB DA not match
+
+Message: LIB DA not match, please re-select DA or ask for help
+
+Meaning:  SP flash tool is having trouble using the selected DA file
+
+Solution: 
+Untick 'Check LIB DA match' within SP flash tool general settings (Options > option)
+Try another version of SP flash tool @ https://www.hovatek.com/forum/thread-13970.html ; you could try v5.1828 (it doesn't have this settings)
+
+Error -1073283068
+
+Message: BROM ERROR: STATUS_DA_HASH_MISMATCH (-1073283068), MSP ERROE CODE: 0X00
+
+
+Meaning:  The DA file being used isn't compatible
+
+Solution: Try using a DA + Auth + Factory rom
+
+Error 0XC50
+
+Message: S_DA_SDMMC_CONFIG_FAILED (0XC50)
+
+Meaning: The device likely has a protected preloader or bootloader
+
+Solution: Untick preloader when flashing in Sp flash tool
+
+Error 3152
+
+Message: S_DA_SDMMC_CONFIG_FAILED (3152)
+
+Meaning: The device likely has a protected preloader or bootloader
+
+Solution: Untick preloader when flashing in Sp flash tool
+
+Error 0xC0020006
+
+Message: ERROR: STATUS_SEC_PL_VFY_FAIL (0xC0020006)
+
+Meaning: The device likely has a protected preloader or bootloader / requires on loaded for all operations
+
+Solution:
+Ensure a preloder for your device's model is loaded before any operation
+Ensure to use the Secure Boot DA (and Auth if requested) for the device
+One or more partitions might be preventing flash. Try flashing one partition at a time
+Try using a signed firmware
+Try unlocking the bootloader before flashing
+
+Error 0xC0030003
+
+Message: ERROR : STATUS_DA_SELECTION_ERR (0xC0030003)
+
+Meaning: The DA file being used is incompatible
+
+Solution:
+For Tecno, Infinix and Itel, try using Software Download tool @ https://www.hovatek.com/forum/thread-23709.html instead
+
+Error 0xC0030008
+
+Message: ERROR: STATUS_INVALID_GPT (0xC0030008)
+
+Meaning: Faulty Emmc chip on the device
+
+Solution:
+Try writing firmware directly to emmc using an emmc tool such as UFI box
+Change the phone's emmc chip
+
+Error 0xC0050004
+
+Message: ERROR: STATUS_UPLOAD_EXCEPTION (0xC0050004)
+
+Meaning: SP Flash tool is unable to connect with the phone
+
+Solution:
+Try a different USB cord
+Try flashing with / without battery inserted
+
+Error 0x1
+
+Message: ERROR: ?? (0x1)
+
+Meaning: SP Flash tool is unable to properly communicate with the phone
+
+Solution:
+Try using a custom DA & Auth file for your device model
+
+Error 0xC0030004
+
+Message: ERROR: STATUS_PRELOADER_INVALID 0xC0030004
+
+Meaning: There's a problem with the preloader partition name in the scatter file or communication with the device
+
+Solution:
+Try loading the preloader from the firmware for your model before attempting to perform any operation
+Edit the scatter file preferably using Notepad++ or any other good text editor, then change partition name to all lower case e.g PRELOADER to preloader or to match the exact file name in the firmware then save the scatter file
+Try holding Vol UP or Down button before connecting the phone to the PC
+If you get the error while trying to format, return to the download tab and tick the checkbox for preloader then return to the format tab and retry formatting
+If you get the error while trying to readback, then press control + alt + v to enable advanced mode in SP flash tool, then on the readback tab, tick the checkbox for SRAM then retry the readback operation
+If readback still fails using the method above then ensure that there's a valid preloader file location within the download tab then return back to the readback tab and proceed with readback
+
+Error 1003
+
+Message: ERROR: S_INVALID_BBCHIP_TYPE (1003)
+
+Meaning: There's a problem with the scatter file
+
+Solution:
+Ensure you're using an SP Flash tool-compatible scatter file
+
+Error 0xC0010004
+
+Message: STATUS_UNSUPPORT_CTRL_CODE (0xC0010004)
+
+Meaning: The version of SP Flash tool you're using doesn't support your chipset / device or Storage Life Cycle Check is failing
+
+Solution:
+Ensure you're using the latest version of SP Flash tool then navigate to Options > Option.. > Untick Storage Life Cycle Check
+
+Error 0xC0020005
+
+Message: STATUS_SEC_IMG_TOO_LARGE (0xC0020005)
+
+Meaning: The particular file as indicated on SP flash tool is either too large in size compared to the partition on the phone or the file isn't verified or signed
+
+Solution:
+Look for and try a different firmware or search online if you'll find a replacement file (one with smaller file size) for the said partition
+
+Error 0xC0070005
+
+Message: STATUS_DA_EXCEED_MAX_NUM (0xC0070005)
+
+Meaning: The SP flash tool is having trouble communicating with the phone or you're flashing a wrong firmware
+
+Solution:
+If you where holding vol button before connecting, then retry flashing without holding any buttons (vice versa)
+Try flashing a different firmware or at least preloader from a different firmware
+Try making a jumper connection between kcolo and gnd (something similar to https://www.hovatek.com/forum/thread-11802.html ) then flash only preloader, if successful then disconnect the jumper and flash the rest of the firmware
+
+Error 0xC004000B
+
+Message: ERROR: STATUS_EXCEED_AVALIABLE_RANGE (0xC004000B)
+
+Meaning: You might be trying to flash or backup too many / too large partitions at a time
+
+Solution:
+Try flashing or backing up one file / partition at a time
+Ensure you've supplied the correct partition addresses (either in scatter file or manually during readback/flash)
+
+Error 0xC0010001)
+
+Message: ERROR: STATUS_ERR  (0xC0010001)
+
+Meaning DA or Auth verification failed
+
+Solution: Ensure to load a custom DA or Auth for the device or bypass DA / Auth check
+
+Error 0xC0020004
+
+Message: ERROR: STATUS_SEC_DL_FORBIDDEN (0xC0020004)
+
+Meaning You aren't allowed to flash to the partition in question
+
+Solution
+Your model might require a compatible preloader.bin always loaded for backup / flash operations
+Ensure the file you're trying to flash is factory signed / official
+Try both Write memory and Download tabs in SP flash tool
+
+
+Error 0xC002004B
+
+Message: ERROR: STATUS_SEC_INSUFFICIENT_BUFFER (0xC002004B)
+
+Meaning The partition in question requires a -verified image
+
+Solution
+Ensure you're using the latest version of SP flash tool
+Skip this partition when flashing (if it isn't a core partition)
+Try doing format all + download then flashing to the partition using download only (Warning: Only format a secure boot device when you either have the auth or are using the auth bypass (SLA/DAA) tweak
+Use the -verified image of that partition if the firmware contains it
+Use this bypass method
+
+Error 0xC002002D
+
+Message: ERROR: STATUS_SEC_VIOLATE_ANTI_ROLLBACK (0*C002002D)
+
+Meaning The older firmware (downgrade) you're trying to flash is rejected by anti-rollback
+
+Solution
+Ensure to download firmware equal to or higher than your current build
+
+Error 0x7009
+
+Message: ERROR: brom_scmd_send_auth error code 0x7009
+
+Meaning The device's chipset requires authentication to flash
+
+Solution
+Use a tool that supports server or remote authentication for the device's chipset
