@@ -1,1456 +1,1318 @@
-# SPFlash-tool-error-code 报错代码合集-中文
+How to Fix SP Flash Tool Errors (BROM Error Codes):
+---------------------------------------------------
 
-## 1. BROM 错误 
+### SP Flash Tool Failed to enumerate COM Port
 
+This error clearly means that the Flash Tool has issues finding the COM port on which your device is connected.
 
-### 1.1 S_UNKNOWN_TARGET_BBCHIP 
+**Solution**:
 
-**描述** 
- 
-- 不支持的目标基带芯片类型！
+1.  Make sure to run SP Flash Tool as administrator on your computer. (A viewer suggested this solution, as it helped him fix the failed to enumerate COM Port issue.)
+2.  Connect your watch to another Port and make sure you have USB Drivers installed.
+3.  Open "_Device Manager"_ and find the COM port of the device you connected. Once found, open Flash Tool, click on Options -> COM Port -> Select the COM Port on which you have connected your device.
 
-**解决方案** 
- 
-- 请升级到最新版 Flash Tool 并重试。
+### The device automatically disconnects during flashing
 
+**Meaning**: Device disconnects as soon as the flashing process begins, interrupting the process.
 
+**Solution**:
 
----
+1.  Try a different USB Cord, USB Port & PC
 
+3.  Hold the Volume Down or Up button while connecting the device to the PC for flashing
 
+### SP Flash Tool remains at 0%
 
-### 1.2 S_UNSUPPORTED_VER_OF_BOOT_ROM 
+**Solution**:
 
-**描述** 
- 
-- 不受支持的 Boot ROM 版本！
+1.  Install necessary [MediaTek VCOM drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/) on PC.
+2.  Use the latest version of SP Flash Tool - [Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)
 
-**解决方案** 
- 
-- 请升级到最新版 Flash Tool 并重试。
+Follow the troubleshooting guide on how to [fix the Flash tool Stuck at 0% (waiting)](https://www.gizmoadvices.com/fix-sp-flash-tool-stuck-0/) issue.
 
+### Error: Initialize scatter file failed. Please check the scatter file name you load is legal
 
+**Meaning**: SP Flash Tool doesn't accept the name of the scatter file.
 
----
+**Solution**:
 
+1.  Make sure the scatter file was not renamed.
+2.  Try a higher version of SP Flash Tool [\[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
 
+### Error: USB device not recognized
 
-### 1.3 S_SEC_INFO_NOT_FOUND 
+This error occurs while you connect your device to the PC. It shows a prompt on the system tray after connecting your device.
 
-**描述** 
- 
-- 当前 ROM 文件未启用安全特性！启用安全的基带必须配合启用安全的 ROM 文件启动。
+**Meaning**: PC is having trouble communicating with your device (It occurs due to interruption, hardware, or driver problems).
 
-**解决方案** 
- 
-- 请使用启用安全特性的 ROM 文件后再试。
+**Solution**:
 
+1.  Try a different USB Cord, USB Port, or PC.
 
+3.  Install the latest [MediaTek USB drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/) on PC.
 
----
+### Error: Please select one ROM at least before execution
 
+**Meaning**: SP Flash Tool fails to recognize that there is an item ticked.
 
+**Solution**:
 
-### 1.4 S_UART_CHKSUM_ERROR 
+1.  Select the Scatter file again and untick all the items which you don't want to flash one by one. Don't use the checkbox, which un-ticks all the things at once and then checks one by one.
 
-**描述** 
- 
-- **硬件** ：通过 UART 回读 SEC_RO 或 CUST_PARA 时，校验和与 BROM DLL 计算值不一致！
+### Error: PRO\_INFO: Failed to get PMT info
 
-**解决方案** 
- 
-- 请检查 UART 连接线是否稳定。
+**Meaning**: SP Flash Tool is having problems reading the phone.
 
+**Solution**:
 
+1.  Use different PC and USB Cable.
 
----
+3.  Ensure that the phone is powered off with a charged battery inside when connecting.
 
+**Note**: Some phones require you to remove the battery while flashing. In this case, Solution 1 is the one you should follow.
 
+### Error 1002: S\_INVALID\_ARGUMENTS
 
-### 1.5 S_BROM_DOWNLOAD_DA_FAIL 
+**Meaning**: Invalid Scatter file.
 
-**描述** 
- 
-- **硬件** ：无法将 DA 下载到基带芯片内部 SRAM！
+**Solution**: Load the correct scatter file.
 
-**可能原因** 
- 
-2. Flash Tool 与 Boot ROM 之间的通讯线路异常。
- 
-4. 目标设备意外关机或失去供电。
- 
-6. 选择的 DA 文件不正确。
+### Error 1012: BROM ERROR: S\_NOT\_ENOUGH\_MEMORY (1012)
 
-**解决方案** 
- 
-2. 重试一次。
- 
-4. 检查下载线及目标设备端口硬件。
- 
-6. 监控目标设备是否掉电。
+**Meaning**: The version of SP Flash Tool doesn't support the size(s) of the file(s) in the firmware or ROM.
 
+**Solution**:
 
+1.  Use the latest version of Flash Tool \[[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
 
----
+### Error 1003: S\_COM\_PORT\_OPEN\_FAIL (1003)
 
+**Meaning**: SP Flash Tool encountered an error while communicating with the device via the target port.
 
+**Solution**:
 
-### 1.6 S_BROM_BBCHIP_HW_VER_INCORRECT 
+1.  Connect the device to a different USB Port on the PC
+2.  Try different versions of SP Flash Tool \[[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
+3.  Try using different USB Cable
+4.  Make sure the device's USB port is not damaged
 
-**描述** 
- 
-- **硬件** ：目标基带芯片与所选镜像文件不匹配！
+### Error 1013: BROM ERROR: S\_COM\_PORT\_OPEN Fail (1013)
 
-**解决方案** 
- 
-- 请选择与目标基带芯片匹配的镜像文件。
+**Meaning**: SP Flash Tool encountered an error while communicating with the device via the target port.
 
+**Solution**:
 
+1.  Connect the device to a different USB Port on the PC
+2.  Try different versions of SP Flash Tool \[[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
+3.  Try using different USB Cable
+4.  Make sure the device's USB port is not damaged
 
----
+### Error 1011: S\_NOT\_ENOUGH\_STORAGE\_SPACE
 
+**Meaning**: The size of any part of the firmware is larger than the allotted space (usually a block or core)
 
+**Solution**:
 
-### 1.7 S_BROM_FAIL_TO_GET_BBCHIP_HW_VER 
+1.  Change the version of the SP Flash Tool. [Download from here](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
 
-**描述** 
- 
-- **硬件** ：无法获取目标基带芯片硬件版本！
+**Note**: It is learned that this error sometimes occurs on the "raw" versions of the flash tool. So changing the version might help.
 
-**可能原因** 
- 
-2. Flash Tool 与 Boot ROM 之间的通讯线路异常。
- 
-4. 目标设备可能意外关机。
+### Error 1022:
 
-**解决方案** 
- 
-2. 重试一次。
- 
-4. 检查下载线及目标设备 UART 通路。
- 
-6. 监控目标设备是否掉电。
+**Meaning**: The version of the SP Flash tool is not compatible with your device, or the USB interface is not working.
 
+**Solution**:
 
+1.  Use the different or latest version of SP Flash Tool - [Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)
+2.  Change USB Cable or USB Port.
 
----
+### Error 1040: S\_UNSUPPORTED\_OPERATION (1040)
 
+**Meaning**: Flash boot files & Scatter.txt don't match.
 
+**Solution**:
 
-### 1.8 S_BROM_AUTOBAUD_FAIL 
+1.  Make sure the correct scatter file is loaded.
 
-**描述** 
- 
-- **硬件** ：已发送 Boot ROM 启动命令，但自动协商波特率失败！
+### Error 1042: BROM ERROR: S\_TIMEOUT (1042)
 
-**可能原因** 
+**Meaning**: The flashing process took too long, and the SP Flash Tool encountered a timeout.
 
-同 1.7。
-**解决方案** 
- 
-2. 重试。
- 
-4. 在高级模式（**Ctrl + Alt + V** ）启用“加速 Boot ROM 波特率”后再试。
- 
-6. 检查硬件连线。
- 
-8. 监控目标掉电情况。
+**Solution**:
 
+1.  Try flashing one file at a time
+2.  Use the latest version of SP Flash Tool \[[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
 
+4.  Use different PC and USB Cable
 
----
+### Error 2: BROM ERROR: ?? (2)
 
+**Meaning**: SP Flash Tool was unable to communicate with the device.
 
+**Solution**:
 
-### 1.9 S_BROM_SPEEDUP_BAUDRATE_FAIL 
+1.  Try using a different PC (preferably Windows 7)
+2.  Install [MediaTek USB Drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/) on PC
 
-**描述 / 原因 / 解决方案** 
- 
-- 与 **1.8**  相同。
+4.  Use another USB Cable
 
+### Error 4008: BROM ERROR : S\_FT\_DOWNLOAD\_FAIL (4008)
 
+**Meaning**: There is an interruption between the SP Flash Tool and the device communication, and the SP Flash Tool encountered an error while flashing files.
 
----
+**Solution**:
 
+1.  Take out the battery and re-insert it back.
+2.  Use different USB Cable, Port, and PC.
 
+4.  Right click flash\_tool.exe -> Properties -> Compatibility -> Set to Windows XP Service Pack 3 -> Apply -> OK -> Run flash\_tool.exe as administrator.
+5.  Make sure the battery has enough charge left.
 
-### 1.10 S_BROM_EXCEED_MAX_DATA_BLOCKS 
+### Error 2004: BROM ERROR : S\_FT\_DOWNLOAD\_FAIL (2004)
 
-**描述** 
- 
-- **MAUI** ：多文件下载数量超过 10 个！
+**Meaning**: There is an interruption between the SP Flash Tool and the device communication, and the SP Flash Tool encountered an error while flashing files.
 
-**解决方案** 
- 
-- 请避免生成超过 10 个二进制文件。
+**Solution**:
 
+1.  Take out the battery and re-insert it back.
+2.  Use different USB Cable, port, and PC.
 
+4.  Right click flash\_tool.exe -> Properties -> Compatibility -> Set to Windows XP Service Pack 3 -> Apply -> OK -> Run flash\_tool.exe as administrator.
+5.  Make sure the battery has enough charge left.
 
----
+### Error 2005: BROM ERROR: S\_BROM\_CMD\_STARTCMD\_FAIL (2005)
 
+**Meaning**: Device attempted to power on before SP Flash Tool could flash the files to it.
 
+**Solution**:
 
-### 1.11 S_DA_INT_RAM_ERROR 
+1.  Take out the battery and re-insert it back.
+2.  Use different USB Cable, port, and PC.
 
-**描述** 
- 
-- 下载的镜像与手机内部存储不匹配。
+4.  Right click flash\_tool.exe -> Properties -> Compatibility -> Set to Windows XP Service Pack 3 -> Apply -> OK -> Run flash\_tool.exe as administrator.
+5.  Make sure the battery has enough charge left.
 
-**解决方案** 
- 
-- 选择与手机存储匹配的正确镜像后重试。
+### Error 2020: BROM ERROR : S\_BROM\_CHKSUM16\_MEM\_RESULT\_DIFF (2020)
 
+**Meaning**: Flash Tool encountered a problem moving files to be flashed to the device's internal SRAM.
 
+**Solution**:
 
----
+1.  use the latest version of the SP flash tool \[[Download Here](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
+2.  In SP flash tool, navigate to Options > Option > Connection > Battery. Set it to "with battery".
+3.  Use the Format all + Download option
+4.  Hold both volume buttons before connecting to the PC for flashing and release once flashing begins
 
+### Error 3001: S\_DA\_EXT\_RAM\_ERROR
 
+The SP Flash Tool Error 3001 occurs due to connection problems. Check the cable and reconnect to another port. If it still occurs, try using a different PC.
 
-### 1.12 S_DA_EXT_RAM_ERROR 
+### Error 3012: NAND\_FLASH\_NOT\_FOUND
 
-**描述** 
- 
-- **硬件** ：DA 未检测到外部 RAM。
+**Meaning**: Problem associated with the definition of flash memory.
 
-**解决方案** 
- 
-- 可能是 SMT 或 EMI 问题，请使用另一部手机尝试下载。
+**Solution**:
 
+1.  Use the different version of flash tools - [Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)
+2.  Use different PC, USB Cable, and USB Port.
 
+### Error 3140: BROM ERROR: S\_DA\_UPDATE\_BOOLOADER\_EXIST\_MAGIC\_NOT\_MATCHED
 
----
+**Meaning**: SP flash tool encountered an error flashing a selected file to a non-specified partition
 
+**Solution**:
 
+1.  Use the latest version of SP Flash Tool - [Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)
 
-### 1.13 S_DA_RAM_FLOARTING 
+3.  Use format option and then download in SP Flash Tool
 
-**描述** 
- 
-- **硬件** ：DA 检测到 DRAM 浮空。
+### Error 3144: S\_DA\_EMMC\_FLASH\_NOT\_FOUND (3144)
 
-**解决方案** 
- 
-- 格式化全部闪存，或换机重试。
+**Meaning**: Flash boot files and scatter mismatch. Note EMMC partition device and MTD partition device use different TXT boot files.
 
+**Solution**:
 
+1.  Choose the correct Scatter file.
+2.  Use a different PC (preferably Windows XP) with all the drivers loaded.
 
----
+### Error 3149: BROM ERROR : S\_DA\_SDMMC\_WRITE\_FAILED (3149)
 
+**Meaning**: SP Flash tool is unable to flash files to the device.
 
+**Solution**:
 
-### 1.14 S_DA_DEVICE_NOT_FOUND 
+1.  Use the latest version of the SP flash tool and run it as administrator. \[[Download here](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
 
-**描述** 
- 
-- **硬件** ：DA 未检测到外部 SRAM/DRAM。
+3.  Format first then Download
+4.  Don't tick a box with an unspecified/empty file path
+5.  Ensure the phone is switched off and has enough charge before connecting to the PC for flashing
+6.  Try a different PC
+7.  Try a different ROM
 
-**可能原因** 
- 
-2. SMT 或 EMI 问题。
- 
-4. NOR/NAND 尚未验证。
+9.  Try a different USB cord
+10.  Try formatting the phone first before flashing files to it
 
-**解决方案** 
- 
-- 请更换设备尝试下载。
+### Error 3168: BROM ERROR: S\_CHIP\_TYPE\_NOT\_MATCH (3168)
 
+**Meaning**: SP Flash Tool detects that there is a mismatch between the information provided in the scatter file and the device's info.
 
+**Solution**:
 
----
+1.  Make sure you are using the correct ROM file for your device.
 
+3.  Use the higher version of SP Flash Tool - [Download here](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)
+4.  Install correct drivers on PC.
 
+### Error 3182: BROM ERROR: S\_STORAGE\_NOT\_MATCH (3182)
 
-### 1.16 S_DA_NAND_UNSUPPORTED_DEV_ID 
+**Meaning**: The firmware you are trying to flash is not compatible with your device.
 
-**描述** 
- 
-- 不支持的 NAND Flash 类型！
+**Solution**: Try getting the appropriate firmware for your device model.
 
-**解决方案** 
- 
-- 升级到最新版 Flash Tool 后重试。
+### Error 3167: BROM\_ERROR: S\_STORAGE\_NOT\_MATCH (3167)
 
+**Meaning**: The firmware you are trying to flash is not compatible with your device.
 
+**Solution**: Try getting the appropriate firmware for your device model.
 
----
+### Error 3178: BROM\_ERROR: S\_STORAGE\_NOT\_MATCH (3178)
 
+**Meaning**: The firmware you are trying to flash is not compatible with your device.
 
+**Solution**: Try getting the appropriate firmware for your device model.
 
-### 1.18 S_DA_NAND_FLASH_NOT_FOUND 
+### Error 4001: S\_FT\_DA\_NO\_RESPONSE or Da didn't send response data to Flash Tool
 
-**描述** 
- 
-- **硬件** ：DA 未检测到 NAND Flash。
+**Meaning**: SP Flash Tool facing problem communicating with the device.
 
-**可能原因** 
- 
-2. SMT 问题。
- 
-4. NFI 问题。
- 
-6. NOR/NAND 尚未验证。
+**Solution**:
 
-**解决方案** 
- 
-- 确认镜像与手机匹配后换镜像再试。
+1.  Use a different USB Port.
+2.  Install [MediaTek VCOM drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/) on PC.
+3.  Run Flash\_tool.exe as administrator.
+4.  Use a different PC (preferably Windows 7 or XP).
 
+6.  Try different USB Cable.
 
+### Error 4004: Driver Error
 
----
+**Meaning**: Drivers not found or corrupted.
 
+**Solution**: Uninstall drivers and re-install them.
 
+### Error 4009: S\_FT\_READBACK\_FAIL (4009)
 
-### 1.21 S_DA_NAND_PAGE_PROGRAM_FAILED 
+**Meaning**: SP Flash Tool failed to create a Readback file, possibly due to not enough space for a file or file cannot be overwritten because it is locked.
 
-**描述** 
- 
-- **硬件** ：DA 写页失败。
+**Solution**:
 
-**可能原因** 
- 
-- SMT 问题。
+1.  Use the different version of SP Flash Tool \[[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
+2.  Delete old Readback files
 
-**解决方案** 
- 
-- 存储可能损坏，请换机下载。
+### Error 4010: BROM ERROR : S\_FT\_FORMAT\_FAIL
 
+**Meaning**: The blocks map in the scatter file doesn't match the device's partition sizes
 
+**Solution**:
 
----
+1.  Use the correct firmware for your device model.
 
+3.  Use the latest version of SP Flash Tool \[[Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
 
+### Error 4017: BROM ERROR: S\_FT\_NAND\_READLEN\_NOT\_ALIGNMENT (4017)
 
-### 1.22 S_DA_NAND_SPARE_PROGRAM_FAILED 
+**Meaning**: You're trying to flash a file that has not been processed for flashing via the SP flash tool
 
-**描述 / 原因 / 解决方案** 
- 
-- 与 **1.21**  相同。
+### Error 4032: BROM ERROR : S\_FT\_ENABLE\_DRAM\_FAIL (4032) \[EMI\] Enable DRAM fail
 
+**Meaning**: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings
 
+**Solution**:
 
----
+1.  Ensure that the firmware you are flashing is made for your device model.
+2.  Delete the SP Flash Tool folder and re-extract it.
+3.  Ensure you tick the boxes for only the files present in the ROM you're about to flash
+4.  Might have the wrong driver installed. Uninstall the VCOM, Preloader, and MTK drivers and re-install them.
 
+### Error 4050: S\_FT\_NEED\_DOWNLOAD\_ALL\_FAIL
 
+**Meaning**: The SP Flash Tool Error Code 4050 occurs when block sizes are not the same in the PMT and scatter. In general, this error is treated to download all the blocks (one can use data enough), then the size in the PMT should switch to the right.
 
-### 1.23 S_DA_NAND_BLOCK_DATA_UNSTABLE 
+**Solution**:
 
-**描述** 
- 
-- **硬件** ：擦除后区块数据不稳定。
+1.  Use a different version of Flash Tool - [Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)
 
-**解决方案** 
- 
-- 格式化全部闪存或换机下载。
+### Error 4058: BROM ERROR: S\_FT\_GET\_MEMORY\_FAIL (4058)
 
+**Meaning**: Flash tool was unable to locate the partition you're trying to flash.
 
+**Solution**: Un-tick any item with a blank or empty location
 
----
+### Error 5002: S\_INVALID\_DA\_FILE
 
+**Meaning**: The Download Agent (DA) file selected is not compatible. DA file is attached to the Flash Tool release, so choose the one which is provided in the Flash Tool folder.
 
+**Solution**:
 
-### 1.28 S_DA_INVALID_RANGE 
+1.  Choose the DA file from the SP Flash Tool folder.
 
-**描述** 
- 
-- 某个下载镜像的地址或长度无效。
+### Error 5007: BROM ERROR : S\_FTHND\_FILE\_IS\_NOT\_LOADED\_YET (5007)
 
-**解决方案** 
- 
-- 重新选择正确的 scatter 文件，确保地址合法后重试。
+**Meaning**: You're trying to flash a file with the unspecified path (no file selected in the item box)
 
+**Solution**:
 
+1.  Make sure the scatter file is in the same folder where the other files to be flashed are located.
+2.  Untick any item whose file you do not have or whose path is not specified.
 
----
+### Error 5054: BROM ERROR S\_DL\_GET\_DRAM\_SETTINGS\_FAIL (5054)
 
+**Meaning**: The files you are trying to flash are not compatible with the device.
 
+**Solution**:
 
-### 1.31 S_DA_BLANK_FLASH 
+1.  Ensure you are using the correct files.
 
-**描述 / 解决方案** 
- 
-- **用户** ：闪存中不存在 MAUI 代码及 SEC_RO（可选）。
+### Error 5069: BROM ERROR : S\_DL\_PMT\_ERR\_NO\_SPACE (5069)
 
+**Meaning**: The size of a file is larger than the available partition size.
 
+**Solution**:
 
-> 与描述相同。
+1.  Ensure that you are flashing the correct files to the device.
+2.  Try another ROM.
 
+### Error 5056: BROM ERROR : S\_DL\_PMT\_ERR\_NO\_SPACE (5056)
 
+**Meaning**: The size of a file is larger than the available partition size.
 
----
+**Solution**:
 
+1.  Ensure that you are flashing the correct files to the device.
+2.  Try another ROM.
 
+### Error 5066: S\_DL\_PC\_BL\_INVALID\_GFH\_FILE\_INFOR
 
-### 1.32 S_DA_CODE_AREA_IS_BLANK 
+**Meaning**: Wrong files. The Scatter file of the chosen folder is not yet prepared for the FT files.
 
-**描述** 
- 
-- **用户** ：闪存中不存在 MAUI 代码。
+**Solution**:
 
-**解决方案** 
- 
-- 请选择 MAUI 文件进行下载。
+1.  Choose the correct scatter file prepared for the FT files.
 
+### Error 5095: S\_DL\_MAUI\_FLASH\_ID\_NOT\_MATCHED\_WITH\_TARGET (5095)
 
+**Meaning**: When you choose the wrong file, for example, another type of flash downloads into the current flash, the tool will warn with this message. The chosen flash files are not compatible with your device.
 
----
+### Error 6010: BROM ERROR: SP FLASHTOOL ERROR 6010 CODE DOWNLOAD FORBIDDEN
 
+**Meaning**: The device has a protected or locked bootloader.
 
+**Solution**: Unlock the bootloader on your device.
 
-### 1.33 S_DA_SEC_RO_AREA_IS_BLANK 
+### Error 6012: BROM ERROR: S\_SECURITY\_SF\_CODE\_COMMAND\_FORBIDDEN (6012), MSP ERROR CODE: 0X00
 
-**描述** 
- 
-- **用户** ：闪存中不存在 SEC_RO（可选）。
+**Meaning**: The Download-Agent being used is incompatible with the device.
 
-**解决方案** 
- 
-- 请选择 SEC_RO 文件（可选）进行下载。
+**Solution**: Set Download-Agent to MTK\_AllInOne\_DA.bin
 
+### Error 6047: BROM ERROR: S\_SECURITY\_SECURE\_USB\_DL\_IMAGE\_HASH\_FAIL
 
+**Meaning**: Hash (integrity) check of the files being flashed failed.
 
----
+**Solution**:
 
+1.  Use SP Flash Tool V5.1516.00 from [here](https://getspflashtool.com/windows/sp-flash-tool-v5-1516/)
+2.  Select the right Download Agent file
+3.  Navigate to Options > Option > Download and untick DA DLL All…
 
+### Error 6124: BROM ERROR: S\_SECURITY\_INVALID\_PROJECT (6124), MSO ERROR CODE: 0X00
 
-### 1.34 S_DA_UNSUPPORTED_BBCHIP 
+**Meaning**: Wrong flash settings or firmware.
 
-**描述** 
- 
-- **用户** ：当前 BROM DLL 版本过旧，不支持此基带芯片！
+**Solution**:
 
-**解决方案** 
- 
-- 升级到最新版 Flash Tool 并重试。
+1.  Use the correct firmware for your exact device model
 
+3.  Select the correct Download Agent file in the SP flash tool
+4.  Go to Options > Option > Connection > USB Speed > Full Speed
+5.  Go to Options > Option > Download > Untick DA DL All with Checksum
 
+### Error 8038: Error 8038! Android download pmt is ready, and layout has been changed / PMT changed for the ROM
 
----
+**Meaning**: SP Flash Tool is having trouble writing to certain partitions due to some incompatibility.
 
+**Solution**:
 
+1.  Format the phone in the SP flash tool (Do not format bootloader) then try flashing the files again using Download
+2.  If Download doesn't work then do a firmware upgrade
+3.  If the MTK backup contains more than one scatter file, retry flashing with the other scatter file.
+4.  If that isn't feasible, try formatting first or use the firmware upgrade
 
-### 1.39 S_FT_SET_DOWNLOAD_BLOCK_FAIL 
+6.  If that doesn't work, open the scatter file using Notepad++ and change \_\_NODL\_FAT to FAT by removing "\_\_NODL\_".
 
-**描述** 
- 
-- DA_MEM_CMD 执行失败。
+### Error 8100:
 
-**可能原因** 
- 
-2. 下载区块超出目标闪存大小。
- 
-4. 起始地址未按字对齐。
- 
-6. 长度非字对齐。
+**Meaning**: Cannot find the USB port.
 
-**解决方案** 
- 
-- 使用其他镜像重新下载。
+**Solution**:
 
+1.  Install the Drivers. If already installed, uninstall them and re-install them again.
 
+### Error 8200:
 
----
+**Meaning**: Invalid file or incompatible recovery file.
 
+**Solution**:
 
+1.  Find the right recovery file.
+2.  Use the latest version of the SP Flash Tool. \[[Download Here](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool)\]
 
-### 1.40 S_FT_DOWNLOAD_FAIL 
+### Error 8406: SP FLASH TOOL ERROR (8406)
 
-**描述** 
- 
-- 写入闪存失败！
+**Meaning**: Compatibility issues.
 
-**解决方案** 
- 
-- 按 **Ctrl + Alt + T**  打开调试日志后再次下载。
+**Solution**:
 
+1.  Flash the right firmware for your exact device model.
+2.  Update VCOM drivers.
 
+### Error 8417: BROM ERROR: Initialize scatter file failed. Please check the scatter file name you load is legal
 
----
+**Meaning**: The format of the Scatter file is invalid.
 
+**Solution**:
 
+Open the scatter file in Notepad++, the first line must beginning with:
 
-### 1.41 S_FT_READBACK_FAIL 
+############################################################################################################## General Setting #
 
-**描述** 
- 
-- 读取闪存失败！
+If there is anything else above this then delete it and save the scatter file.
 
-**解决方案** 
- 
-- 按 **Ctrl + Alt + T**  打开调试日志后重新回读。
+### Stuck at Download DA 100%
 
+**Meaning**: SP Flash Tool is having trouble communicating with your device.
 
+**Solution**:
 
----
+1.  Uninstall and re-install [MediaTek drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/).
 
+### SP Flash Tool flashing process was successful, but the phone's calibration doesn't work
 
+If, after flashing the files using SP Flash Tool soft keys and touch doesn't work or respond, follow the below solution.
 
-### 1.42 S_FT_NAND_READADDR_NOT_PAGE_ALIGNMENT 
+**Solution**:
 
-**描述** 
- 
-- **用户** ：NAND 回读起始地址未按页对齐。
+Edit the scatter file using Notepad++ and remove the NODL\_ (or set is\_download: false to is\_download: true) in front of the items you have in the backup folder but aren't listed when you load the scatter file in the SP flash tool. Removing NODL\_ or setting is\_download to true makes the item listed/available in the SP flash tool when you load the scatter file after saving it.
 
-**解决方案** 
- 
-- 请检查回读起始地址。
+### USB device not recognized
 
+**Meaning**: The PC is having trouble communicating with your device because of interruption, hardware, or driver problem.
 
+**Solution**:
 
----
+1.  Remove and install the [MediaTek MTK drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/) again on your PC.
 
+3.  Try a different USB cable.
+4.  Connect the device to a different USB Port.
+5.  If the above solutions don't work, try using another PC.
 
+### Error 0xFDA: BROM ERROR: S\_FT\_GET\_MEMORY\_FAIL (0xFDA)
 
-### 1.43 S_FT_NAND_READLEN_NOT_PAGE_ALIGNMENT 
+**Meaning**: SP Flash Tool encountered an error reading your device’s storage.
 
-**描述** 
- 
-- **用户** ：NAND 回读长度未按页对齐。
+**Solution**:
 
-**解决方案** 
- 
-- 请检查回读长度。
+1.  Try a different USB cable.
+2.  Connect the device to a different USB Port.
+3.  If the above solutions don't work, try using another PC.
 
+### Error 0x13BE: S\_DL\_GET\_DRAM\_SETTING\_FAIL (0x13BE)
 
+**Meaning**: The firmware you are trying to flash is either not compatible or you have selected the wrong flashing settings.
 
----
+**Solution**:
 
+1.  Make sure that the firmware you are trying to flash is actually for your device model.
+2.  Only tick the boxes only for the files which are available in the ROM folder you're trying to flash.
 
+### Error 0x3: BROM ERROR:?? (0x3)
 
-### 1.44 S_FT_ENABLE_DRAM_FAIL 
+**Meaning**: SP flash tool encountered an error maintaining the connection with the device during the flashing process.
 
-**描述** 
- 
-- **EMI** ：启用 DRAM 失败。
+**Solution**:
 
-**解决方案** 
- 
-- 确认镜像与设备匹配后重新下载。
+1.  Uninstall and re-install MTK VCOM drivers on your PC.
+2.  Try a different USB cable.
 
+4.  Connect the device to a different USB Port.
+5.  If the above solutions don't work, try using another PC.
 
+### Error 0x7D4: BROM ERROR: S\_BROM\_DOWNLOAD\_DA\_FAIL (0x7D4)
 
----
+**Meaning**: SP Flash Tool encountered an error writing to the device.
 
+**Solution**:
 
+1.  Try changing the Download Agent (Secure Boot DA) file.
 
-### 1.45 S_DL_GET_DRAM_SETTING_FAIL 
+3.  Use the latest version of SP Flash Tool – [Download here](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
+4.  Make sure that your device's battery is sufficiently charged.
+5.  Make sure the device's USB port is not damaged.
+6.  Ensure that the file names match what's in the scatter file.
+7.  Try a different USB cable.
+8.  Connect the device to a different USB Port.
 
-**描述** 
- 
-- **EMI** ：获取 DRAM 设置失败！
+10.  If the above solutions don't work, try using another PC.
 
-**解决方案** 
- 
-- 检查所用镜像是否与目标机型匹配。
+### Error 0x8: BROM ERROR:?? (0x8)
 
+**Meaning**: The size of the file you are trying to flash is larger than the partition size.
 
+**Solution**:
 
----
+1.  Ensure that the files you're trying to flash are actually for your device's exact model.
+2.  Try another Stock ROM.
+3.  Change the phone's EMMC chip.
 
+5.  Try using a different PC.
 
+### Error OXFC0: BROM ERROR S\_FT\_ENABLE\_DRAM\_FAIL (OXFC0)
 
-### 1.46 S_FT_OTP_ADDR_NOT_WORD_ALIGNMENT 
+**Meaning**: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings.
 
-**描述** 
- 
-- **用户** ：OTP 操作地址未按字对齐！
+**Solution**:
 
-**解决方案** 
- 
-- 请重新确认 OTP 地址。
+1.  Ensure that the files you're trying to flash are actually for your device's exact model.
 
+3.  Only tick the boxes only for the files which are available in the ROM you're trying to flash.
+4.  Uninstall the VCOM, Preloader, and MTK drivers and re-install them on your PC.
+5.  Use the latest version of the [Smartphone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
+6.  Delete the SP Flash Tool folder and re-extract it.
 
+8.  Ensure that the phone is powered off (with the battery inserted) before connecting to the PC for flashing.
+9.  If the above solution doesn't work, then you can try holding down the Volume Down button and connect the phone to the PC. You can also try holding Volume UP, Power and Volume Down, Power, and Volume UP buttons.
 
----
+11.  Format the phone from Settings before trying to flash the files again.
 
+### Error 0X411: BROM ERROR: S\_CHKSUM\_ERROR (0X411)
 
+**Meaning**: There was a checksum error when flashing the firmware.
 
-### 1.47 S_FTHND_FILE_IS_NOT_LOADED_YET 
+**Solution**:
 
-**描述** 
- 
-- 文件尚未加载！
+1.  Delete any file with the checksum in its name from the ROM/firmware folder.
+2.  Go to Options > Option > Download > Un-tick DA DL all with checksum.
 
-**解决方案** 
- 
-2. 检查 DA 路径是否正确。
- 
-4. 确认所有 ROM 文件存在。
- 
-6. 验证 scatter 描述与实际 ROM 同步。
+### Error 0xFA1: BROM ERROR: S\_FT\_DA\_NO\_RESPONSE (0xFA1)
 
+**Meaning**: SP flash tool encountered an error communicating with the device.
 
+**Solution**:
 
----
+1.  Install MTK VCOM drivers on your PC. If already installed, uninstall and re-install them.
+2.  Ensure that the device is powered off and has charged battery inserted.
+3.  Do not hold any button when connecting the device to the PC for flashing.
 
+5.  Try a different USB cable.
+6.  Connect the device to a different USB Port.
 
+8.  If the above solutions don't work, try using another PC.
 
-### 1.48 S_FTHND_LIST_IS_EMPTY 
+### TOOL DL image Fail!
 
-**描述** 
- 
-- 下载/回读列表为空或全部被禁用！
+**Meaning**: DA DL all with the Checksum option, is disabled in the SP flash tool.
 
-**解决方案** 
- 
-- 至少选择一个条目；**Android**  机型需先加载 scatter 文件。
+**Solution**:
 
+1.  In SP Flash Tool, navigate to Options > Option > Download > Tick DA DL all with checksum and re-flash the firmware.
 
+### Error 0xFC0: BROM ERROR: S\_FT\_ENABLE\_DRAM\_FAIL (0xFC0)
 
----
+**Meaning**: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings.
 
+**Solution**:
 
+1.  Ensure that the files you're trying to flash are actually for your device's exact model.
+2.  Only tick the boxes only for the files which are available in the ROM you're trying to flash.
+3.  Uninstall the VCOM, Preloader, and MTK drivers and re-install them on your PC.
+4.  Use the latest version of the [Smartphone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
 
-### 1.49 S_DL_REMOTE_FILE_UNSUPPORTED_BY_BL_AUTOLOAD 
+6.  Delete the SP Flash Tool folder and re-extract it.
+7.  Ensure that the phone is powered off (with the battery inserted) before connecting to the PC for flashing.
 
-**描述** 
- 
-- **用户** ：Boot Loader 镜像位于远程服务器。
+9.  If the above solution doesn't work, then you can try holding down the Volume Down button and connect the phone to the PC. You can also try holding Volume UP, Power and Volume Down, Power, and Volume UP buttons.
+10.  Format the phone from Settings before trying to flash the files again.
 
-**解决方案** 
- 
-- 请使用本地电脑中的 Boot Loader 镜像。
+### Error 0xC0050003: BROM ERROR: STATUS\_DOWNLOAD\_EXCEPTION (0xC0050003)
 
+**Meaning**: SP flash tool encountered an error writing to one or more partitions.
 
+**Solution**:
 
----
+1.  [Download](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool) the latest version of the Smart Phone Flash Tool and re-flash the firmware.
 
+3.  Try flashing one partition at a time to figure out which partition is resulting in the error.
+4.  Try a different USB cable.
+5.  Connect the device to a different USB Port.
 
+7.  If the above solutions don't work, try using another PC.
 
-### 1.50 S_DLIST_BBCHIP_HW_VER_NOT_MATCHED 
+### Error 0xc002002A: BROM ERROR: STATUS\_SEC\_IMG\_TYPE\_MISMATCH (0xc002002A)
 
-**描述** 
- 
-- **硬件** ：基带芯片与 scatter 文件不匹配！
+**Meaning**: The firmware you're trying to flash is either not compatible with your device, or you have selected the wrong flashing settings or verified boot is enabled.
 
-**解决方案** 
- 
-- 选择正确的 scatter 文件并重试。
+**Solution**:
 
+1.  Unlock the bootloader before flashing the firmware.
+2.  Ensure that the files you're trying to flash are actually for your device's exact model.
 
+4.  Only tick the boxes only for the files which are available in the ROM you're trying to flash.
+5.  Uninstall the VCOM, Preloader, and MTK drivers and re-install them on your PC.
+6.  Use the latest version of the [Smartphone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
 
----
+8.  Delete the SP Flash Tool folder and re-extract it.
+9.  Ensure that the phone is switched off (with the battery inserted) before connecting to the PC for flashing.
+10.  If the above solution doesn't work, then you can try holding down the Volume Down button and connect the phone to the PC. You can also try holding Volume UP, Power and Volume Down, Power, and Volume UP buttons.
 
+12.  Format the phone from Settings before trying to flash the files again.
 
+### Error 0XFA8: BROM ERROR: S\_FT\_DOWNLOAD\_FAIL (0XFA8)
 
-### 1.51 S_UNSUPPORTED_VER_OF_AUTH_FILE 
+**Meaning**: SP flash tool encountered an error while attempting to flash the firmware.
 
-**描述** 
- 
-- **用户** ：认证文件版本不受支持！
+**Solution**:
 
-**解决方案** 
- 
-- 确认使用的是最新版 Flash Tool。
+1.  Make sure that the device is switched off, and the battery is in the device before connecting for flashing.
+2.  Use the format option and then download it in the SP flash tool.
 
+4.  Try changing the Download Agent setting in Smartphone Flash Tool.
+5.  Try a different USB cable.
 
+7.  Try connecting the device to a different USB Port.
+8.  Try using a different PC.
 
----
+### Error 0x7D5: BROM ERROR: S\_BROM\_CMD\_STARTCMD\_FAIL (0x7D5)
 
+**Meaning**: The device attempted to power on before the SP flash tool could flash the files to it.
 
+**Solution**:
 
-### 1.52 S_DL_PROJECT_ID_DIFF_BETWEEN_MAIN_CODE_AND_JUMP_TBL 
+1.  Make sure the battery is sufficiently charged on your device.
 
+3.  Take out and re-insert the battery.
+4.  Try using a different USB cable or COM port or PC.
 
-- MAUI 代码和跳转表二进制文件之间的项目 ID 不同！请检查 MAUI 和跳转表是否在同一个项目中。
+6.  Right click flash\_tool.exe -> Properties -> Compatibility -> Set to Windows XP Service Pack 3 -> Apply -> OK -> Run flash\_tool.exe as administrator.
+7.  Do not hold any button when connecting to the PC.
 
+### Error: Boundary Check Failed: rom\_end\_addr >= next rom begin\_addr.
 
+**Meaning**: The firmware has a partition that wasn't included while backing up the firmware. SP Flash Tool encountered an error in the end address of the preloader partition and the begin address of the PGPT partition (i.e., the partition which wasn't included in the backup).
 
----
+**Solution**:
 
+1.  Close the error message and manually select the location of all the files in the scatter file from the bottom to the top. Meaning that a preloader would be the last thing you will select.
 
+3.  If that doesn't work, open and modify the scatter file using Notepad++ then change the "boundary\_check: True" to "boundary\_check: False".
 
-### 1.53 S_DL_SCAT_OPEN_FAIL 
+### Error 3179: BROM ERROR: S\_CHIP\_TYPE\_NOT\_MATCH (3179)
 
-**描述** 
- 
-- **用户** ：无法打开 scatter 文件！
+**Meaning**: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings.
 
-**解决方案** 
- 
-- 检查 scatter 文件是否存在且未被占用。
+**Solution**:
 
+1.  Ensure that the files you're trying to flash are actually for your device's exact model.
+2.  Only tick the boxes only for the files which are available in the ROM you're trying to flash.
 
+4.  Uninstall the VCOM, Preloader, and MTK drivers and re-install them on your PC.
+5.  Use the latest version of the [Smartphone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
+6.  Delete the SP Flash Tool folder and re-extract it.
+7.  Ensure that the phone is powered off (with the battery inserted) before connecting to the PC for flashing.
+8.  If the above solution doesn't work, then you can try holding down the Volume Down button and connect the phone to the PC. You can also try holding Volume UP, Power and Volume Down, Power, and Volume UP buttons.
+9.  Format the phone from Settings before trying to flash the files again.
 
----
+### Error 5073: BROM ERROR: S\_DL\_READ\_PT\_FAIL (5073)
 
+**Meaning**: Smartphone flash tool encountered an error while trying to format the device.
 
+**Solution**:
 
-### 1.54 S_DL_UNSECURE_MAUI_TO_SECURE_BB 
+*   Use "download only" under the download tab to flash the firmware, and then you can format the device if needed.
 
+### SP Flash Tool force-closes when scatter file is loaded
 
-- 无法将不安全的 MAUI 下载到安全的 BB 中！请使用启用安全功能的 MAUI。
+**Meaning**: SP Flash Tool doesn't support the scatter file because of its blocks or configuration.
 
+**Solution**:
 
+*   Open the scatter file using Notepad++ and locate the last partition on the list (flashinfo) and change the is\_download: true to is\_download: false. Once done, save the scatter file and reload it in SP Flash Tool.
 
----
+### Storage type mismatch!
 
+**Message**:
 
+scatter storage type is HW\_STORAGE\_EMMC
 
-### 1.55 S_SECURITY_SLA_INVALID_AUTH_FILE 
+target storage type is HW\_STORAGE\_NAND
 
-**描述** 
- 
-- **用户** ：使用了无效的认证文件！
+(or)
 
-**解决方案** 
- 
-- 该错误只在 MSP (MTK Secure Platform) 代码中出现，请保持 MSP 版本一致并寻求支持。
+scatter storage type is HW\_STORAGE\_EMMC
 
+target storage type is HW\_STORAGE\_NONE
 
+**Meaning**: There is a mismatch between the device's storage type and that which the scatter file expects.
 
----
+**Solution**:
 
+1.  Try using a different firmware or ROM.
 
+3.  Try using SP Flash Tool version 3.x. If it doesn't work, try using different versions and make sure to run it as administrator.
 
-### 1.56 S_SECURITY_SF_SECURE_VER_CHECK_FAIL 
+### Error 8045: No Valid Partition Management Table (PMT) for storage
 
-**描述** 
- 
-- **用户** ：secure-MAUI 的安全版本低于手机内版本！
+**Meaning**: SP Flash Tool failed to identify the device's partition ahead of the file writes.
 
-**解决方案** 
- 
-- 请选择安全版本相同或更新的 secure-MAUI。
+**Solution**:
 
+*   Try flashing the firmware using Download only.
 
+### Error 1041: BROM ERROR: S\_CHKSUM\_ERROR (1041)
 
----
+**Meaning**: There was a checksum error when flashing the firmware.
 
+**Solution**:
 
+1.  Delete any file with the checksum in its name from the ROM/firmware folder.
+2.  Go to Options > Option > Download > Un-tick DA DL all with checksum.
 
-### 1.57 S_SECURITY_SF_HANDSET_SECURE_CUSTOM_NAME_NOT_MATCH 
+### Error 6126: BROM ERROR: S\_SECURITY\_SECRO\_HASH\_INCORRECT (6126), MSP ERROE CODE: 0x00
 
-**描述** 
- 
-- **用户** ：secure-MAUI 的定制名与手机内不一致！
+**Meaning**: The ROM contains a checksum file, but DA DL All With CheckSum is un-checked.
 
-**解决方案** 
- 
-- 请选择定制名一致的 secure-MAUI。
+**Solution**:
 
+*   Tick DA DL All With Check Sum under Options > Option > Download.
 
+### Error 6128: BROM ERROR: S\_SECURITY\_AC\_REGION\_NOT\_FOUND\_IN\_SECROIMG (6128), MSP ERROR CODE: 0X00
 
----
+**Meaning**: The ROM contains a checksum file, but DA DL All With CheckSum is un-checked.
 
+**Solution**:
 
+*   Tick DA DL All With Check Sum under Options > Option > Download.
 
-### 1.58 S_SECURITY_SECURE_CUSTOM_NAME_NOT_MATCH_BETWEEN_AUTH_AND_DL_HANDLE 
+### Error 0xC0050005: ERROR STATUS\_EXT\_RAM\_EXCEPTION (0xC0050005)
 
-**描述** 
- 
-- **用户** ：认证文件中的定制名与 secure-MAUI 不一致！
+**Meaning**: The firmware you're trying to flash is either not compatible with your device or you have selected the wrong flashing settings.
 
-**解决方案** 
- 
-- 认证文件与 secure-MAUI 的定制名必须一致。
+**Solution**:
 
+1.  Ensure that the files you're trying to flash are actually for your device's exact model.
 
+3.  Only tick the boxes only for the files which are available in the ROM you're trying to flash.
+4.  Make sure your device's battery is sufficiently charged.
 
----
+### Error (3): BROM ERROR:?? (3)
 
+**Meaning**: There is a problem with the format of the scatter file or files being flashed. Example – trying to flash .bin files using SP Flash Tool.
 
+**Solution**:
 
-### 1.59 S_PART_NO_VALID_TABLE 
+*   Check the scatter file and firmware files you are trying to flash to make sure that they're not meant to be flashed using a different tool.
 
-**描述** 
- 
-- NAND Flash 无有效分区表！
+### Error 6104: BROM ERROR: S\_SECURITY\_SECURE\_USB\_DL\_DA\_RETURN\_INVALID\_TYPE (6104), MSP ERROR CODE: 0X00
 
-**解决方案** 
- 
-- 确认目标机已正确刷写，选择“格式化全部 + 下载”后重试！
+**Meaning**: Wrong flash settings or firmware/ROM files.
 
+**Solution**:
 
+1.  Make sure you have selected the correct Download Agent file in SP Flash Tool and are using the firmware meant for your device's exact model.
+2.  Go to Options > Option > Connection > USB Speed > Full Speed.
+3.  Go to Options > Option > Download > un-tick DA DL ALL with Checksum.
 
----
+### Error 3183: BROM ERROR: S\_CHIP\_TYRE\_NOT\_MATCH (3183)
 
+**Meaning**: SP Flash Tool believes that there is a mismatch between the information provided in the scatter file and device info.
 
+**Solution**:
 
-### 1.60 S_PART_NO_SPACE_FOUND 
+1.  Make sure to use the ROM/firmware for the exact device model.
+2.  Try using the higher version of the SP Flash Tool.
+3.  Uninstall and re-install the [MediaTek MTK USB Drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/) on your PC.
 
-**描述** 
- 
-- 未找到分区表可用空间！
+### Error 0xC0060001: BROM ERROR: S\_BROM\_CMD\_STARTCMD\_FAIL (0xC0060001)
 
-**解决方案** 
- 
-- 请格式化全部后重新下载。
+**Meaning**: The device attempted to power on before the SP flash tool could flash the files to it.
 
+**Solution**:
 
+1.  The device might require a custom Download Agent (DA) to be flashed.
+2.  Make sure the battery is sufficiently charged before flashing.
+3.  Take out and re-insert the battery.
+4.  Try using a different USB cable or COM port or PC.
+5.  Right click flash\_tool.exe -> Properties -> Compatibility -> Set to Windows XP Service Pack 3 -> Apply -> OK -> Run flash\_tool.exe as administrator.
+6.  Do not hold any button when connecting to the PC.
 
----
+### Error: PMT changed for the ROM; it must be downloaded
 
+**Meaning**: The partition table about to be written (from the scatter file) is different from the device's current partition table layout.
 
+**Solution**:
 
-### 1.61 S_DA_UPDATE_BOOTLOADER_FILE_SIZE_EXCEEDS_BOUNDARY_ADDR 
+1.  Ensure that the scatter file and firmware/ROM files you're trying to flash are for your device's exact model.
+2.  If you're trying to flash only a few files from the firmware, then you need to get the firmware to complement and then flash using download only.
+3.  If you're trying to flash the complete firmware, then try using the "Firmware Upgrade" option or Format first before the "download only" option.
 
-**描述** 
- 
-- DA 下载引导加载器超出分区边界！
+### Error 6004: ERROR: S\_SECURITY\_SLA\_FAIL (6004), MSP ERROE CODE: 0X00
 
-**解决方案** 
- 
-- 引导区坏块过多，请做物理全格后重刷。
+**Meaning**: The Download Agent file isn't compatible with the device.
 
+**Solution**:
 
+1.  Try using a different Download Agent file.
+2.  Try using a different version of the [Smartphone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
+3.  Ensure you are using the right Authentication file.
 
----
+### Error 6045: S\_SECURITY\_SECURE\_USB\_DL\_IMAGE\_SIGN\_HEADER\_NOT\_FOUND (6045), MSP ERROE CODE: 0x00
 
+**Meaning**: The image files you are trying to flash do not contain –sign header.
 
+**Solution**:
 
-### 1.62 S_SECURITY_DAA_FAIL 
+1.  Use the SP Flash Tool v5.1532.00 – [Download here](https://getspflashtool.com/windows/sp-flash-tool-v5-1532/).
+2.  Load the Auth file for the device in the flash tool.
 
-**描述** 
- 
-- DA 安全下载错误！
+4.  Try flashing a factory-signed firmware.
+5.  Flash the unsigned image using the 'Write Memory' tab in SP Flash Tool. To activate the write memory tab, press 'Ctrl + Alt + V' to enable advanced mode and then click Window > Write Memory.
 
-**解决方案** 
- 
-- Security DA 未用正确密钥签名，请选择正确 DA 后重试。
+### Error 2035: BROM ERROR: S\_BROM\_CMD\_JUMP\_DA\_FAIL (2035)
 
+**Meaning**: SP Flash Tool encountered an error connecting to the device.
 
+**Solution**:
 
----
+1.  Ensure that the battery is inserted, and you're not holding any button when connecting the device to a PC for flashing.
+2.  Uninstall and re-install the [MediaTek MTK VCOM Drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/).
+3.  Disable any modem manager or software which might be blocking ports on the PC.
 
+5.  Linux / Ubuntu users, make sure you installed 'libusb-dev' then blacklist Ubuntu's modem manager (because it controls port /dev/ttyACM0, which is causing SP Flash Tool from running properly).
 
+### Error 0x412: BROM ERROR: S\_TIMEOUT (0X412)
 
-### 1.63 S_DA_UPDATE_BOOTLOADER_EXIST_MAGIC_NOT_MATCHED 
+**Meaning**: SP Flash Tool encountered a timeout when trying to flash, i.e., flashing took long to start or complete.
 
-**描述** 
- 
-- DA 检测 DSP_BL 失败。
+**Solution**:
 
-**解决方案** 
- 
-- 目标机之前的固件无 DSP_BL，格式化全部后重新下载。
+1.  Make sure that files are loaded in SP Flash Tool with a valid location. The location should not be empty.
+2.  Try flashing one file at a time.
+3.  Try using a higher version of the [Smart Phone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
 
+5.  Un-tick larger files or find smaller alternatives.
 
+### Error 6029: S\_SECURITY\_SEND\_AUTH\_FAIL (6029), MSP ERROE CODE: 0x00
 
----
+**Meaning**: SP Flash Tool failed to authenticate the files you are trying to flash.
 
+**Solution**:
 
+1.  Try another ROM/firmware from a different source.
+2.  Get an Auth file for your device model.
+3.  For Tecno, Infinix, and Itel devices, use Software Download Tool (Format + Download).
 
-## 2. Flash Tool 错误 
+### Error 0x93AF: ROM \[logo\] checksum mismatch checksum\_config\[0x93af\], checksum\_val\[0x94ae\]
 
+**Meaning**: The SP Flash Tool Error Code 0x93AF means that the tool encountered a checksum error.
 
-### 2.1 FT_FIND_USB_ERROR 
+**Solution**:
 
-**描述** 
- 
-- **Android USB** ：无法找到 USB 端口！
+1.  Open the checksum file using Notepad++ and search for 0x93af and replace it with 0x94ae.
 
-**解决方案** 
- 
-2. 目标设备电量不足，请插入电池。
- 
-4. 数据线硬件问题，请更换。
- 
-6. 如使用 USB 集线器，可能存在漏电。
- 
-8. 未安装 Android 下载驱动，请先安装对应驱动。
+3.  Delete any checksum file from the ROM/firmware files.
 
+### Error 5011: S\_DL\_SCAT\_INCORRECT\_FORMAT (5011)
 
+**Meaning**: The scatter file has an incorrect format. It has been badly created or modified.
 
----
+**Solution**:
 
+1.  Download a different scatter file that doesn't throw an error in SPFT. Now open the two scatter files using Notepad++, and you will notice that the incorrect scatter file has the items slightly shifted to the left. Edit the incorrect scatter file to the same format as in the working scatter file.
+2.  After modifying the scatter file using the above method, use the latest version of SP Flash Tool e.g., SP Flash Tool v5.1728.
+3.  Download another ROM/firmware from a different source.
 
+### Error 0xC52: BROM ERROR: S\_DA\_SDMMC\_WRITE\_FAILED (0XC52)
 
-### 2.2 FT_FIND_GADGET_USB_ERROR 
+**Meaning**: SP Flash Tool was unable to flash files to the device.
 
-**描述** 
- 
-- **Android USB** ：无法找到 Gadget Serial USB 端口！
+**Solution**:
 
-**解决方案** 
+1.  Make sure to use the latest version of the SP Flash Tool and run it as administrator.
+2.  Format first then Download.
+3.  Un-tick the box with an unspecified/empty file path.
+4.  Ensure that the battery is sufficiently charged and the device is switched off before connecting to the PC for flashing.
+5.  Try a different ROM from a different source.
+6.  Try formatting the device first before flashing the files.
 
-与 2.1 相同，但第 4 条需安装 Gadget Serial USB 驱动。
+8.  Try a different USB cable.
+9.  Connect the device to a different USB Port.
+10.  If the above solutions don't work, try using another PC.
 
+### Error 0XFAA: BROM ERROR: S\_FT\_FORMAT\_FAIL (0XFAA)
 
----
+**Meaning**: The source (firmware) doesn’t properly match with the target (phone).
 
+**Solution**:
 
+1.  Try using a different firmware for your device model.
+2.  Ensure you're using the right tool for flashing the firmware.
 
-### 2.3 FT_DL_PLATFORM_ERROR 
+### Error 5072: ERROR: S\_DL\_WRITE\_PT\_FAIL (5072)
 
-**描述** 
- 
-- **平台错误** ：加载文件与目标设备不一致！
+**Meaning**: SPFT encountered a problem writing to one or more partitions.
 
-**解决方案** 
- 
-- 依据目标设备选择正确固件并下载。
+**Solution**:
 
+1.  Make sure the device is powered off with a charged battery inside before connecting to the PC for flashing.
+2.  Don't hold any buttons when connecting to the PC.
 
+4.  Try a different USB cable.
+5.  Connect the device to a different USB Port.
+6.  If the above solutions don't work, try using another PC.
 
----
+### Error 0xC0070004: ERROR: STATUS\_DA\_HASH\_MISMATCH (0xC0070004)
 
+**Meaning**: Hash (integrity) check for the images being flashed is failed.
 
+**Solution**:
 
-### 2.4 FT_UPGRADE_FOLDER_OVERLAPPED 
+1.  Use SP Flash Tool v5.1516.00 – [Download from here](https://getspflashtool.com/windows/sp-flash-tool-v5-1516/).
+2.  Make sure to select the correct Download Agent file.
+3.  Navigate to Options > Option > Download > Un-tick DA DL all with checksum.
 
-**描述** 
- 
-- **Android 固件升级** ：备份目录将被覆盖！
+### Error 6046: BROM ERROR: S\_SECURITY\_USB\_DL\_IMAGE\_SIGNATURE\_VERIFY\_FAIL (6064), MSP ERROR CODE: 0X0
 
-**解决方案** 
- 
-- 目标备份文件夹已存在，请移动并删除旧目录后再备份。
+**Meaning**: The SP Flash Tool Error Code 6046 refers to the failed signature verification for the firmware files.
 
+**Solution**:
 
+1.  Select MTK\_AllInOne\_DA.bin as Download Agent file.
 
----
+3.  Navigate to Options > Option > Download > Un-tick DA DL all with Checksum.
 
+5.  Delete any checksum file in the ROM/firmware folder.
 
+### Error 0XC0060003: ERROR: STATUS\_BROM\_CMD\_SEND\_DA\_FAIL (0XC0060003)
 
-### 2.5 FT_UPGRADE_FOLDER_NOT_EXSIT 
+**Meaning**: Smart Phone Flash Tool is unable to read or write to the device using the selected Download Agent.
 
-**描述** 
- 
-- **Android 固件升级** ：恢复文件不存在！
+**Solution**:
 
-**解决方案** 
- 
-- 在 “Tool folder\BackupNvram\芯片ID” 下找不到 NVRAM 校准文件，请重新下载。
+1.  The device might require a custom Download Agent (DA) to be flashed.
+2.  Make sure the battery is sufficiently charged before flashing.
+3.  Take out and re-insert the battery.
 
+5.  Try using a different USB cable or COM port or PC.
+6.  Right click flash\_tool.exe -> Properties -> Compatibility -> Set to Windows XP Service Pack 3 -> Apply -> OK -> Run flash\_tool.exe as administrator.
 
+8.  Do not hold any button when connecting to the PC.
 
----
+### Error 0x94010000: CHIP TYPE NOT match! target refuse value: 0x94010000
 
+**Meaning**: The device likely has a locked/encrypted preloader.
 
+**Solution**:
 
-### 2.6 FT_UPGRADE_DIR_CREATE_FAIL 
+*   Un-tick preloader when flashing in SP Flash Tool.
 
-**描述** 
- 
-- **Android 固件升级** ：创建备份目录失败！
+### Error 0xC0020029: BROM ERROR: STATUS\_SEC\_IMGHDR\_TYPE\_MISMATCH (0xC0020029)
 
-**解决方案** 
- 
-- 无法在 “Tool folder\BackupNvram” 下创建备份目录，请检查文件夹权限。
+**Meaning**: You are trying to flash the modified files to a device that accepts only signed or verified images.
 
+**Solution**:
 
+1.  Download and flash the official firmware for your device (usually have –verified or –signed prefixes in their filename).
 
----
+3.  If possible, unlock the bootloader of your device and then try re-flashing.
 
+### Error 5000: BROM ERROR: S\_AUTH\_HANDLE\_IS\_NOT\_READY (5000)
 
+**Meaning**: The device has a secure boot/bootloader.
 
-### 2.7 FT_UPGRADE_FILE_NOT_EXSIT 
+**Solution**:
 
-**描述 / 解决方案** 
- 
-- 与 **2.5**  相同。
+1.  You will need an Auth (\*.auth) file or custom Download Agent (DA) file for the device to proceed with flashing using SP Flash Tool.
+2.  For Tecno, Infinix, and Itel devices, use Software Download Tool (Format + Download).
 
+### Error 0xC002002C: ERROR: STATUS\_SEC\_IMG\_HASH\_VFY\_FAIL (0xC002002C)
 
+**Meaning**: The device has a verified boot.
 
----
+**Solution**:
 
+*   Download and flash the official firmware for your device (usually have –verified or –signed prefixes in their filename).
 
+### Error 0xC0030012: ERROR: STATUS\_SEC\_AUTH\_FILE\_NEEDED (0xC0030012)
 
-### 2.8 FT_UPGRADE_BACKUP_ROM_NOT_EXSIT 
+**Meaning**: The device has a secure boot.
 
-**描述** 
- 
-- **Android 固件升级** ：恢复 ROM 镜像不存在！
+**Solution**:
 
-**解决方案** 
- 
-- 在 scatter 文件中未找到对应镜像，请确认 scatter 文件未被修改。
+*   You will need an Auth (\*.auth) file or custom Download Agent (DA) file for the device to proceed with flashing using SP Flash Tool.
 
+### Error 0xC0060005: ERROR: STATUS\_BROM\_CMD\_FAIL (0xC0060005)
 
+**Meaning**: The device attempted to power on before the SP Flash Tool could flash files to it.
 
----
+**Solution**:
 
+*   You will need a custom Download Agent (DA) file for your device model.
 
+### Error 8: ERROR: ?? (8)
 
-### 2.9 FT_FIND_NVRAM_ERROR 
+**Meaning**: The size of a file is larger than the available partition size.
 
-**描述** 
- 
-- 手机数据损坏，找不到 NVRAM 信息。
+**Solution**:
 
-**解决方案** 
- 
-- 选择与目标匹配的固件后重新下载。
+1.  Make sure that the firmware files you are trying to flash are actually for your device's exact model.
 
+3.  Try another Stock ROM from a different source.
+4.  Change the device's EMMC chip.
+5.  Try using a different PC.
 
+### Error 0xC0030001: Error: STATUS\_SCATTER\_FILE\_INVALID (0xC0030001)
 
----
+**Meaning**: SP Flash Tool cannot recognize the scatter file or the location of the scatter file.
 
+**Solution**:
 
+1.  Rename the folder location of the scatter file, including the parent folders too, and remove all special characters / non-English characters from the folder name.
+2.  If that doesn't work, then create a new folder on your desktop and copy ONLY the firmware files to the new folder and then retry flashing the contents from the new folder.
 
-### 2.10 FT_INVALID_FORMAT_ADDR_ERROR 
+### Error: Partition\[nvram\] should NOT set "is\_download" to true in scatter file
 
-**描述** 
- 
-- 无效的格式化地址。
+**Meaning**: The scatter file specifies to download NVRAM but doesn't specify a file name for NVRAM. This error is common in later versions of the SP Flash Tool.
 
-**解决方案** 
- 
-2. 检查格式化地址或选择自动格式化后重试。
+**Solution**:
 
+1.  Modify the scatter file using notepad++ and add a file name for the NVRAM partition. e.g., "file\_name: nvram.bin" then save and ensure there's a nvram.bin file in the same folder as the scatter file.
+2.  If that doesn't work, modify the scatter file using notepad++ and set "is\_download: false" for the NVRAM partition.
 
+### Error 0xC0050001: ERROR: STATUS\_DEVICE\_CTRL\_EXCEPTION (0XC0050001)
 
----
+**Meaning**: The firmware you are trying to flash is either not compatible or you have selected the wrong flashing settings.
 
+**Solution**:
 
+1.  Make sure that the firmware you are trying to flash is actually for your device model.
 
-### 2.11 FT_FIND_PLATFORM_ERROR 
+3.  Only tick the boxes only for the files which are available in the ROM folder you're trying to flash.
+4.  Uninstall and re-install [MediaTek Preloader VCOM USB Drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/).
 
-**描述** 
- 
-- 找不到 platform.xml！
+### Error 0xC002001B: ERROR: STATUS\_SEC\_PUBK\_AUTH\_MISMATCH\_N (0xC002001B)
 
-**解决方案** 
- 
-- 检查安装目录下是否存在 platform.xml，然后再试。
+**Meaning**: The device has a verified boot.
 
+**Solution**:
 
+*   Download and flash the official firmware for your device (usually have –verified or –signed prefixes in their filename).
 
----
+### Error 5014: ERROR: S\_DL\_SCAT\_ADDR\_IS\_NOT\_ASCENDING\_ORDER (5014)
 
+**Meaning**: The scatter file was badly created or modified, depending on how you obtained the scatter file.
 
+**Solution**:
 
-### 2.12 FT_FIND_STORAGE_ERROR 
+*   Input the correct values for all "physical\_start\_addr" in the scatter file. The exact value for "physical\_start\_addr" is the same as the value of "linear\_start\_addr".
 
-**描述** 
- 
-- 找不到 storage_setting.xml！
+### Error 0x7F3: BROM ERROR: S\_BROM\_CMD\_JUMP\_DA\_FAIL
 
-**解决方案** 
- 
-- 检查安装目录下是否存在 storage.xml，然后再试。
+**Meaning**: SP Flash Tool is having trouble communicating with the device.
 
+**Solution**:
 
+1.  Ensure that the battery is inserted, and you're not holding any button when connecting the device to a PC for flashing.
+2.  Uninstall and re-install the [MediaTek Preloader Drivers](https://www.gizmoadvices.com/mt65xx-preloader-vcom-driver/).
 
----
+4.  Disable any modem manager or software which might be blocking ports on the PC.
 
+6.  Linux / Ubuntu users, make sure you installed 'libusb-dev' then blacklist Ubuntu's modem manager (because it controls port /dev/ttyACM0, which is causing SP Flash Tool from running properly).
 
+### Error 3154: BROM ERROR: S\_DA\_SDMMC\_WRITE\_FAILED (3154)
 
-### 2.13 FT_FIND_IMAGEMAP_ERROR 
+**Meaning**: SP Flash Tool Error Code 3154 means that the flash tool is having trouble flashing files to the device.
 
-**描述** 
- 
-- 找不到 image_map.xml！
+**Solution**:
 
-**解决方案** 
- 
-- 确认安装目录下存在该文件，否则请重新安装工具。
+1.  Make sure to use the latest version of the SP Flash Tool and run it as administrator.
+2.  Format first then Download.
+3.  Un-tick the box with an unspecified/empty file path.
+4.  Ensure that the battery is sufficiently charged and the device is switched off before connecting to the PC for flashing.
 
+6.  Try a different ROM from a different source.
 
+8.  Try formatting the device first before flashing the files.
+9.  Try a different USB cable.
+10.  Connect the device to a different USB Port.
+11.  If the above solutions don't work, try using another PC.
 
----
+### Error 0xC0010005: BROM ERROR: STATUS\_PROTOCOL\_ERR (0xC0010005)
 
+**Meaning**: SP flash tool is having trouble communicating with the device.
 
+**Solution**:
 
-### 2.14 FT_INVALID_SESSION_KEY 
+*   Make sure that the phone is switched off with the battery inserted before connecting to the PC for flashing.
 
-**描述** 
- 
-- 无效的会话密钥！
+### Error 0xC0010007: BROM ERROR: INSUFFICIENT\_BUFFER (0xC0010007)
 
-**解决方案** 
- 
-- 关闭工具并重新打开。
+**Meaning**: SP Flash Tool seems to be blocked from flashing files to the device.
 
+**Solution**:
 
+*   If you can boot your device into Fastboot Mode, then unlock the bootloader and then try flashing again.
+*   Un-tick OEM and then retry flashing.
 
----
+### Error 0xC0050007: ERROR: STATUS\_READ\_DATA\_EXCEPTION (0xC0050007)
 
+**Meaning**: SP Flash Tool is unable to readback from the connected device. This error usually occurs, especially when the readback length is too large.
 
+**Solution**:
 
-### 2.15 ERROR_BL_INCONSISTENT 
+1.  Download and install updated MTK drivers on your PC.
+2.  If you're performing a readback, try skipping cache and userdata.
 
-**描述** 
- 
-- 引导加载器需同时全选或全不选。
+### Error 0x13CD: BROM ERROR: S\_DL\_PMT\_ERR\_NO\_SPACE (5069)
 
-**解决方案** 
- 
-- 检查下载页已勾选的镜像项。
+**Meaning**: The size of a file is larger than the available partition size.
 
+**Solution**:
 
+1.  Make sure that the firmware files you are trying to flash are actually for your device's exact model.
+2.  Try another Stock ROM from a different source.
 
----
+4.  Change the device's EMMC chip.
 
+### Error: LIB DA not match, please re-select DA or ask for help
 
+**Meaning**: SP Flash Tool is having trouble using the selected Download Agent (DA) file.
 
-### 2.16 ERROR_ROM_MUST_ENABLE 
+**Solution**:
 
-**描述** 
- 
-- 下载镜像已调整。
+1.  Un-tick "Check LIB DA match" from the SP Flash Tool general settings (Options > Option).
+2.  Try another version of the SP Flash Tool.
 
-**解决方案** 
- 
-- 选择“格式化全部 + 下载”并重试。
+### Error -1073283068: BROM ERROR: STATUS\_DA\_HASH\_MISMATCH (-1073283068), MSP ERROE CODE: 0X00
 
+**Meaning**: The Download Agent (DA) file selected isn't compatible.
 
+**Solution**:
 
----
+*   Try using Download Agent (DA) + Auth file + Factory ROM.
 
+### Error 0XC50: S\_DA\_SDMMC\_CONFIG\_FAILED (0XC50)
 
+**Meaning**: The device likely has a protected preloader or bootloader.
 
-### 2.17 ERROR_PMT_UNAVAILABLE 
+**Solution**:
 
-**描述** 
- 
-- 手机内部数据损坏或为新机。
+*   Un-tick preloader when flashing in SP Flash Tool.
 
-**解决方案** 
- 
-- 选择“格式化全部 + 下载”后重试。
+### Error 3152: S\_DA\_SDMMC\_CONFIG\_FAILED (3152)
 
+**Meaning**: The device likely has a protected preloader or bootloader.
 
+**Solution**:
 
----
+*   Un-tick preloader when flashing in SP Flash Tool.
 
+### Error 0xC0020006: ERROR: STATUS\_SEC\_PL\_VFY\_FAIL (0xC0020006)
 
+**Meaning**: The device likely has a protected preloader or bootloader.
 
-### 2.18 ERROR_DATA_LOST 
+**Solution**:
 
-**描述** 
- 
-- 分区变化过大，NVRAM 数据将丢失。
+1.  Try using a signed ROM/firmware.
+2.  Try unlocking the bootloader before flashing.
 
-**解决方案** 
- 
-- 选择“格式化全部 + 下载”重试。
+### Error 0xC0030003: ERROR: STATUS\_DA\_SELECTION\_ERR (0xC0030003)
 
+**Meaning**: The Download Agent (DA) file selected is incompatible.
 
+**Solution**:
 
----
+1.  Try using a different Download Agent file.
+2.  Try using Download Agent (DA) + Auth file + Factory ROM.
+3.  Try using a different version of the [Smartphone Flash Tool](https://www.gizmoadvices.com/list-sp-flash-tool-error-codes-solution-fix/#where_to_download_SP_Flash_Tool).
+4.  For Tecno, Infinix, and Itel devices, use Software Download Tool.
 
+### Error 0xC0030008: ERROR: STATUS\_INVALID\_GPT (0xC0030008)
 
+**Meaning**: EMMC chip is faulty on the device.
 
-### 2.19 ERROR_UNKNOWN_ROM 
+**Solution**:
 
-**描述** 
- 
-- 加载的镜像包含无法识别的 ROM。
+*   Change the device's EMMC chip.
 
-**解决方案** 
- 
-- 检查 scatter 文件并加载正确文件。
+### Error 0xC0050004: ERROR: STATUS\_UPLOAD\_EXCEPTION (0xC0050004)
 
+**Meaning**: SP Flash Tool is unable to communicate with the device.
 
+**Solution**:
 
----
+1.  Try flashing with/without the battery inserted.
+2.  Try a different USB cable.
 
+4.  Connect the device to a different USB Port.
+5.  If the above solutions don't work, try using another PC.
 
+### Error 0x1: ERROR: ?? (0x1)
 
-### 2.20 ERROR_ILLEGAL_ADDRESS 
+**Meaning**: SP flash tool is having trouble communicating with the device.
 
-**描述** 
- 
-- 目标 ROM 或 PMT 地址非法。
+**Solution**:
 
-**解决方案** 
- 
-- 重新选择并加载目标镜像后重试。
+*   Try using a custom Download Agent (DA) and Auth file for your device model.
 
+### Error 0xC0030004: ERROR: STATUS\_PRELOADER\_INVALID 0xC0030004
 
+**Meaning**: There is a problem with the preloader partition name in the scatter file or the flash tool is having trouble communicating with the device.
 
----
+**Solution**:
 
+1.  Modify the scatter file using Notepad++ and change the partition name to all lower cases. Ex: PRELOADER to preloader or to match the exact file name in the firmware and save the scatter file.
+2.  Try holding the volume up or volume down button before connecting the phone to the PC.
 
+4.  If you get an error while trying to format, return to the download tab and tick the checkbox for the preloader, then return to the format tab and retry formatting.
 
-### 2.21 ERROR_FILE_NOT_EXIST 
+### Error 1003: ERROR: S\_INVALID\_BBCHIP\_TYPE (1003)
 
-**描述** 
- 
-- 备份文件不存在。
+**Meaning**: There is a problem with the scatter file.
 
-**解决方案** 
- 
-- 请联系工具维护者获取帮助。
+**Solution**:
 
+*   Make sure to use SP Flash Tool compatible scatter file.
 
+### Error 0xC0010004: STATUS\_UNSUPPORT\_CTRL\_CODE (0xC0010004)
 
----
+**Meaning**: The SP Flash Tool version you are using doesn't support your device or chipset.
 
+**Solution**:
 
+1.  Make sure you are using the latest version of the SP Flash Tool.
+2.  Navigate to Options > Option > Un-tick Storage Life Cycle Check.
 
-### 2.22 ERROR_CHKSUM_FAIL 
+### Error 0xC0020005: STATUS\_SEC\_IMG\_TOO\_LARGE (0xC0020005)
 
-**描述** 
- 
-- 下载镜像数据已损坏。
+**Meaning**: The size of a file is larger than the available partition size, or the file isn't verified or signed.
 
-**解决方案** 
- 
-- 请更新下载镜像后重试。
+**Solution**:
 
+1.  Ensure that the files you're trying to flash are actually for your device's exact model.
 
+3.  Look for different firmware/ROM.
+4.  Change the phone's EMMC chip.
+5.  Try using a different PC.
 
----
+### Error 0xC0070005: STATUS\_DA\_EXCEED\_MAX\_NUM (0xC0070005)
 
-
-
-### 2.23 E_APP_ADD_RB 
-
-**描述** 
- 
-- 需要选择要回读的项目。
-
-**解决方案** 
- 
-2. 点击 **Add**  按钮添加回读条目。
- 
-4. 至少勾选一个已添加的条目后再试。
-
-
-
----
-
-
-
-### 2.24 E_APP_ADDR_ALIGN_RB 
-
-**描述** 
- 
-- 回读条目的地址或长度未对齐：NAND 须对齐到 4096，EMMC 须对齐到 512 字节。
-
-**解决方案** 
- 
-2. 检查回读条目的地址与长度是否对齐。
- 
-4. 若未对齐，双击该条目，在“Readback block start address”对话框中修改起始地址或长度。
-
-
-
----
-
-
-
-### 2.25 E_APP_BAT_DATA 
-
-**描述** 
- 
-- 错误：下载数据长度为 0。
-
-**解决方案** 
- 
-- 检查加载文件的大小，确保其大于 0 字节。
-
-
-
----
-
-
-
-### 2.26 E_APP_BAT_DECRYPT 
-
-**描述** 
- 
-- 解密下载数据失败。
-
-**解决方案** 
- 
-- 请检查输入数据是否正确。
-
-
-
----
-
-
-
-### 2.27 E_APP_LOAD_AUTH 
-
-**描述** 
- 
-- 错误：认证文件为空。
-
-**解决方案** 
- 
-- 点击 **Auth File**  按钮，在执行 DL Certification 之前选择指定的认证文件。
-
-
-
----
-
-
-
-### 2.28 E_APP_LOAD_DA 
-
-**描述** 
- 
-- 进行下载、格式化、回读等操作前需要加载 Download Agent。
-
-**解决方案** 
- 
-- 点击 **Download Agent**  按钮，选择正确的 DA 文件后重试。
-
-
-
----
-
-
-
-### 2.29 E_APP_LOAD_PRELOADER 
-
-**描述** 
- 
-- 未加载或未启用 preloader 镜像。
-
-**解决方案** 
- 
-2. 点击 **Scatter‑loading**  按钮加载 scatter 文件。
- 
-4. 勾选 preloader 镜像后重试。
-
-
-
----
-
-
-
-### 2.30 E_APP_LOAD_SCATTER 
-
-**描述** 
- 
-- 必须先加载 scatter 文件，才能执行下载、格式化、回读等操作。
-
-**解决方案** 
- 
-- 点击 **Scatter‑loading**  按钮，选择正确的 scatter 文件。
-
-
-
----
-
-
-
-### 2.31 E_APP_NONROM_SELECT 
-
-**描述** 
- 
-- 错误：所选 ROM 文件为空。
-
-**解决方案** 
- 
-- 请确保在 ROM 列表中至少勾选一个 ROM 条目。
-
-
-
----
-
-
-
-### 2.32 E_APP_NULL_READ_FILE_OTP 
-
-**描述** 
- 
-- 点击 **Update**  前未指定读取参数。
-
-**解决方案** 
- 
-2. 检查读取信息是否为空。
- 
-4. 如为空，点击 **Setting** ，在 **OTP Read Setting**  对话框中填写 OTP 参数。
-
-
-
----
-
-
-
-### 2.33 E_APP_NULL_WRITE_FILE_OTP 
-
-**描述** 
- 
-- 点击 **Update**  前未指定写入参数。
-
-**解决方案** 
- 
-2. 检查写入信息是否为空。
- 
-4. 如为空，点击 **Setting** ，在 **OTP Write Setting**  对话框中填写 OTP 参数。
-
-
-
----
-
-
-
-### 2.34 E_APP_SCATTER_FAILED 
-
-**描述** 
- 
-- 错误：该 platform 或 storage 不被工具支持。请检查所加载 scatter 文件名是否合法。
-
-**解决方案** 
- 
-- 确认加载的 scatter 文件受当前工具版本支持。
-
-
-
----
-
-
-
-### 2.35 E_APP_SEC_IMAGE 
-
-**描述** 
- 
-- 错误：加载的 sec 镜像不是签名镜像或解锁镜像。
-
-**解决方案** 
- 
-- 双击 sec 镜像位置重新加载，选择已签名的锁定镜像后重试。
-
-
-
----
-
-
-
-### 2.36 E_APP_SEC_UNLOCK 
-
-**描述** 
- 
-- 错误：加载的 sec 镜像为解锁镜像。
-
-**解决方案** 
- 
-- 双击 sec 镜像位置，重新加载锁定镜像后重试。
-
-
-
----
-
-
-
-### 2.37 E_APP_START_ASSISTANT 
-
-**描述** 
- 
-- 应用无法找到 Qt Assistant，或其版本不正确。
-
-**解决方案** 
- 
-2. 打开工具目录，确认 **assistant.exe**  是否存在。
- 
-4. 双击 **assistant.exe**  检查能否正常启动。
- 
-6. 若仍失败，请将错误报告发送给我们。
-
-
-
----
-
-
-
-### 2.38 E_SYS_MEMORY_LOW 
-
-**描述** 
- 
-- 错误：系统内存不足。
-
-**解决方案** 
- 
-- 关闭部分应用以释放内存后再试。
-
-
-
----
-
+**Meaning**: The SP Flas
